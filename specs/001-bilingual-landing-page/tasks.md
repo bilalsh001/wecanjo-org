@@ -147,18 +147,18 @@ exactly.
 
 ### Implementation for User Story 4
 
-- [ ] T035 [US4] Fill the header, navigation and footer of `ar/index.html` from contracts/content.md: wordmark "جمعية نحن نستطيع", Arabic labels, language link "EN" with `lang="en" hreflang="en"` and accessible name "English", footer text with "مسجّلة في الأردن كمنظمة غير حكومية / مجتمعية" and "© 2026 جمعية نحن نستطيع", and the complete logo with alt "شعار جمعية نحن نستطيع"
-- [ ] T036 [US4] Add the Arabic hero, Who we are, Our vision and Our mission to `ar/index.html` using the same images and markup pattern as `index.html`, the draft Arabic copy and Arabic alt texts from contracts/content.md, and the heading font preload for Amiri
-- [ ] T037 [US4] Add the Arabic Founders to `ar/index.html`: names exactly "إنصاف دعاس", "د. ميسون العتوم", "د. عبير دبابنة", "عماد شهاب" (confirmed), draft credentials and roles, and initials "إ‌د", "م‌ع", "ع‌د", "ع‌ش" with U+200C between the letters (research R11)
-- [ ] T038 [US4] Add the Arabic Contact to `ar/index.html`: email link wrapped in `dir="ltr"`, "عمّان، الأردن", and the three placeholders with Arabic labels, "قريبًا" badges, ", غير متاح بعد" hidden text and the same PLACEHOLDER comments as `index.html`
-- [ ] T039 [US4] Add right-to-left refinements to `styles.css`: flip directional icons under `[dir="rtl"]`, Arabic headings in Amiri with about 10% more line height, Arabic body in IBM Plex Sans Arabic at 17/30 px, and isolation of Latin and numeric runs (NGO, CBO, 2026, email) so they keep their reading order (FR-017)
-- [ ] T040 [US4] Set the English page's language link in `index.html` to `/ar/` with `lang="ar" hreflang="ar"` and accessible name "العربية" (FR-018)
+- [X] T035 [US4] Fill the header, navigation and footer of `ar/index.html` from contracts/content.md: wordmark "جمعية نحن نستطيع", Arabic labels, language link "EN" with `lang="en" hreflang="en"` and accessible name "English", footer text with "مسجّلة في الأردن كمنظمة غير حكومية / مجتمعية" and "© 2026 جمعية نحن نستطيع", and the complete logo with alt "شعار جمعية نحن نستطيع"
+- [X] T036 [US4] Add the Arabic hero, Who we are, Our vision and Our mission to `ar/index.html` using the same images and markup pattern as `index.html`, the draft Arabic copy and Arabic alt texts from contracts/content.md, and the heading font preload for Amiri
+- [X] T037 [US4] Add the Arabic Founders to `ar/index.html`: names exactly "إنصاف دعاس", "د. ميسون العتوم", "د. عبير دبابنة", "عماد شهاب" (confirmed), draft credentials and roles, and initials "إ‌د", "م‌ع", "ع‌د", "ع‌ش" with U+200C between the letters (research R11)
+- [X] T038 [US4] Add the Arabic Contact to `ar/index.html`: email link wrapped in `dir="ltr"`, "عمّان، الأردن", and the three placeholders with Arabic labels, "قريبًا" badges, ", غير متاح بعد" hidden text and the same PLACEHOLDER comments as `index.html`
+- [X] T039 [US4] Add right-to-left refinements to `styles.css`: flip directional icons under `[dir="rtl"]`, Arabic headings in Amiri with about 10% more line height, Arabic body in IBM Plex Sans Arabic at 17/30 px, and isolation of Latin and numeric runs (NGO, CBO, 2026, email) so they keep their reading order (FR-017)
+- [X] T040 [US4] Set the English page's language link in `index.html` to `/ar/` with `lang="ar" hreflang="ar"` and accessible name "العربية" (FR-018)
 
 ### Verification for User Story 4
 
-- [ ] T041 [US4] Run `node tools/check-site.mjs --group i18n` (same section IDs and order, `lang`/`dir`, equal image and alt counts, switch links both ways) and fix every failure
-- [ ] T042 [US4] Run axe on `http://localhost:5500/ar/` at 390 and 1280 px and fix every violation
-- [ ] T043 [US4] Check `/ar/` at 390, 768, 1280 and 1440 px: mirrored layout, no horizontal scrolling, photos and logo not mirrored, matches `design/stitch/ar-laptop.html` and `ar-mobile.html` apart from the documented differences
+- [X] T041 [US4] Run `node tools/check-site.mjs --group i18n` (same section IDs and order, `lang`/`dir`, equal image and alt counts, switch links both ways) and fix every failure
+- [X] T042 [US4] Run axe on `http://localhost:5500/ar/` at 390 and 1280 px and fix every violation
+- [X] T043 [US4] Check `/ar/` at 390, 768, 1280 and 1440 px: mirrored layout, no horizontal scrolling, photos and logo not mirrored, matches `design/stitch/ar-laptop.html` and `ar-mobile.html` apart from the documented differences
 
 **Checkpoint**: Both languages complete
 

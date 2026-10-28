@@ -225,21 +225,37 @@ p {
   font-size: 0.875rem;
 }
 
-[lang="ar"] h1,
-[lang="ar"] h2,
+/* Arabic body: IBM Plex Sans Arabic at 17/30 px on every screen. */
+body:lang(ar) {
+  font-size: 1.0625rem;
+  line-height: 1.765;
+}
+
+/* Amiri headings: same sizes as English, about 10% more line height. */
+[lang="ar"] h1 {
+  line-height: 1.32;
+}
+
+[lang="ar"] h2 {
+  line-height: 1.375;
+}
+
 [lang="ar"] h3 {
-  line-height: 1.4;
+  line-height: 1.47;
+}
+
+/* Email and phone links keep their left-to-right order inside Arabic text (FR-017), even if an
+   activated contact channel forgets dir="ltr". */
+[dir="rtl"] a[href^="mailto:"],
+[dir="rtl"] a[href^="tel:"] {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 @media (min-width: 1024px) {
   body {
     font-size: 1.125rem;
     line-height: 1.667;
-  }
-
-  body:lang(ar) {
-    font-size: 1.0625rem;
-    line-height: 1.765;
   }
 
   h1 {
@@ -250,6 +266,14 @@ p {
   h2 {
     font-size: 2.5rem;
     line-height: 1.2;
+  }
+
+  [lang="ar"] h1 {
+    line-height: 1.26;
+  }
+
+  [lang="ar"] h2 {
+    line-height: 1.32;
   }
 }
 
@@ -642,6 +666,10 @@ p {
     font-size: 4rem;
     line-height: 1.125;
   }
+
+  [lang="ar"] .hero h1 {
+    line-height: 1.24;
+  }
 }
 
 /* ---------- Section headings ---------- */
@@ -786,6 +814,7 @@ p {
 }
 
 .vision__eyebrow {
+  margin-inline: auto;
   color: var(--light-cream);
 }
 
@@ -1221,4 +1250,39 @@ img.founder-card__badge {
   .channel--email {
     grid-column: auto;
   }
+}
+
+/* ---------- Right-to-left refinements ---------- */
+
+/* Directional marks face the other way in Arabic; photos and the logo are never mirrored. */
+[dir="rtl"] .vision__mark,
+[dir="rtl"] .channel--form .channel__icon {
+  transform: scaleX(-1);
+}
+
+/* Arabic is never slanted, letter-spaced or uppercased (DESIGN.md). These rules come last so they
+   win over the component styles above. */
+:lang(ar) .highlight,
+:lang(ar) .vision__quote {
+  font-style: normal;
+}
+
+:lang(ar) .vision__quote {
+  line-height: 1.6;
+}
+
+/* Amiri's subset has no Latin quotation marks, so the decorative mark uses a system serif. */
+:lang(ar) .vision__mark {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+:lang(ar) .founder-card__credential {
+  font-size: 0.875rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Arabic letters read smaller than Latin at the same size. */
+:lang(ar) .badge {
+  font-size: 0.8125rem;
 }

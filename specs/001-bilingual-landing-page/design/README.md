@@ -29,3 +29,5 @@ These come from the spec clarifications and the constitution:
 - Helper sentences Stitch invented in the Contact section (for example "Direct lines for
   administrative support and regional community desks" and "We welcome collaborations, inquiries,
   and dialogue…") are not used: they are not approved copy. Placeholders say "Coming soon" only.
+- The decorative quotation mark in the vision band is mirrored on the Arabic page so it faces the
+  right-to-left text (DESIGN.md: flipped directional icons).

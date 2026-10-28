@@ -15,6 +15,7 @@ names, which are confirmed. Anything not listed here must not appear on the site
 | Nav: Mission | Mission | رسالتنا |
 | Nav: Founders | Founders | المؤسسون |
 | Nav: Contact | Contact | تواصل معنا |
+| Main navigation name (`aria-label`) | Main | القائمة الرئيسية |
 | Language switch (link to the other page) | عربي (`lang="ar"`, accessible name "العربية") | EN (`lang="en"`, accessible name "English") |
 | Menu button | Open menu / Close menu | فتح القائمة / إغلاق القائمة |
 | Menu panel name | Menu | القائمة |
