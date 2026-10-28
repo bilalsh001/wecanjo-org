@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>We Can Organization | Empowering women and youth in Jordan</title>
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/eb-garamond-latin.woff2" crossorigin>
+  <link rel="preload" as="image" href="/images/web/hero-portrait-720.jpg" imagesrcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-720.jpg 720w, /images/web/hero-portrait-1080.jpg 1080w" imagesizes="100vw" media="(max-width: 639px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/web/hero-1440.jpg" imagesrcset="/images/web/hero-960.jpg 960w, /images/web/hero-1440.jpg 1440w, /images/web/hero-1920.jpg 1920w" imagesizes="100vw" media="(min-width: 640px)" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -13,6 +16,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="#top">
+        <img class="brand__mark" src="/images/web/logo-mark-64.png" srcset="/images/web/logo-mark-64.png 1x, /images/web/logo-mark-128.png 2x, /images/web/logo-mark-192.png 3x" width="114" height="64" alt="">
         <span class="brand__name">We Can Organization</span>
       </a>
       <div class="site-menu" id="site-menu">
@@ -35,26 +39,64 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="top-title">
+      <picture class="hero__media">
+        <source media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-720.jpg 720w, /images/web/hero-portrait-1080.jpg 1080w" sizes="100vw" width="480" height="600">
+        <img src="/images/web/hero-1440.jpg" srcset="/images/web/hero-960.jpg 960w, /images/web/hero-1440.jpg 1440w, /images/web/hero-1920.jpg 1920w" sizes="100vw" width="1440" height="960" alt="Many hands from different people stacked together" fetchpriority="high">
+      </picture>
       <div class="container hero__content">
-        <h1 id="top-title">Empowering women and youth for a better future</h1>
+        <div class="hero__text">
+          <p class="eyebrow hero__eyebrow">Community-based organization · Jordan</p>
+          <h1 id="top-title">Empowering women and youth for a better future</h1>
+          <p class="hero__lead">We create opportunities and resources so every woman and young person in Jordan can pursue their dreams and drive positive change.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#about">Learn about us</a>
+            <a class="btn btn--outline-light" href="#contact">Contact us</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <h2 id="about-title">Who we are</h2>
+      <div class="container split">
+        <div class="split__text">
+          <p class="eyebrow">About us</p>
+          <h2 class="section-title" id="about-title">Who we are</h2>
+          <p>We are an organization dedicated to serving both women and youth through a variety of programs. We are registered as a local Non-Governmental Organization (NGO) or Community-Based Organization (CBO) in Jordan and are working to expand our impact and create meaningful change on multiple levels.</p>
+          <p class="badge-line">
+            <svg class="badge-line__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6Z" fill="currentColor"/></svg>
+            Registered NGO / CBO in Jordan
+          </p>
+        </div>
+        <figure class="split__media split__media--portrait">
+          <img src="/images/web/women-800.jpg" srcset="/images/web/women-480.jpg 480w, /images/web/women-800.jpg 800w, /images/web/women-1080.jpg 1080w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="1200" alt="Women working together around a long table covered with greenery" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
     <section class="vision" id="vision" aria-labelledby="vision-title">
-      <div class="container">
+      <img class="vision__media" src="/images/web/community-1280.jpg" srcset="/images/web/community-640.jpg 640w, /images/web/community-1280.jpg 1280w, /images/web/community-1440.jpg 1440w" sizes="100vw" width="1280" height="720" alt="The Roman Theatre in Amman with the city's hillside neighborhoods behind it" loading="lazy" decoding="async">
+      <div class="container vision__content">
         <h2 class="visually-hidden" id="vision-title">Our vision</h2>
+        <p class="eyebrow vision__eyebrow" aria-hidden="true">Our vision</p>
+        <span class="vision__mark" aria-hidden="true">“</span>
+        <blockquote class="vision__quote">
+          <p>A community dedicated to the development and success of all women and youth, where individuals can pursue their dreams and make meaningful contributions to a vibrant and equitable society.</p>
+        </blockquote>
       </div>
     </section>
 
     <section class="section mission" id="mission" aria-labelledby="mission-title">
-      <div class="container">
-        <h2 id="mission-title">How we create change</h2>
+      <div class="container split split--reverse">
+        <div class="split__text">
+          <p class="eyebrow">Our mission</p>
+          <h2 class="section-title" id="mission-title">How we create change</h2>
+          <p>To build a dynamic platform that supports, encourages and empowers youth and women to thrive socially and economically at all levels.</p>
+          <p class="highlight">By leveraging the collective strength of our ecosystem, we believe that individual success drives community prosperity.</p>
+          <p>We are committed to fostering an environment where every young person and woman has the opportunities and resources to achieve their dreams and create positive change.</p>
+        </div>
+        <figure class="split__media">
+          <img src="/images/web/youth-800.jpg" srcset="/images/web/youth-480.jpg 480w, /images/web/youth-800.jpg 800w, /images/web/youth-1200.jpg 1200w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="450" alt="Young adults in a classroom listening to a teacher" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
@@ -71,7 +113,27 @@
     </section>
   </main>
 
-  <footer class="site-footer"></footer>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="/images/web/logo-full-240.png" srcset="/images/web/logo-full-240.png 240w, /images/web/logo-full-480.png 480w" sizes="112px" width="240" height="240" alt="We Can Organization logo" loading="lazy" decoding="async">
+        <p class="site-footer__summary">Empowering women and youth across Jordan.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <ul class="site-footer__links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#founders">Founders</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="site-footer__meta">
+        <p>Registered NGO / CBO in Jordan</p>
+        <p>© 2026 We Can Organization</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="/script.js" defer></script>
 </body>

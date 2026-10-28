@@ -371,6 +371,14 @@ p {
   }
 }
 
+/* Below 1024 px the wrapped links would make a sticky header too tall (FR-024), so it scrolls
+   away; the menu button (script.js) makes it compact and sticky again. */
+@media (max-width: 1023px) {
+  .site-header {
+    position: relative;
+  }
+}
+
 .site-header__inner {
   display: flex;
   flex-wrap: wrap;
@@ -480,5 +488,437 @@ p {
 
   .site-nav__list {
     gap: 28px;
+  }
+}
+
+/* Header mark: 44 px on phones, 52 px on tablets, 64 px from 1024 px (FR-013). */
+.brand__mark {
+  inline-size: auto;
+  block-size: 44px;
+}
+
+@media (min-width: 640px) {
+  .brand__mark {
+    block-size: 52px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brand__mark {
+    block-size: 64px;
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 48px;
+  padding-inline: 24px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn--primary {
+  background: var(--leaf-green);
+  color: var(--pure-white);
+}
+
+.btn--primary:hover {
+  background: var(--deep-grove);
+}
+
+.btn--outline-light {
+  border-color: var(--pure-white);
+  color: var(--pure-white);
+}
+
+.btn--outline-light:hover {
+  background: var(--pure-white);
+  color: var(--deep-grove);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-block-size: clamp(520px, 82svh, 720px);
+  padding-block: 72px;
+  overflow: hidden;
+  background: var(--deep-grove); /* readable even if the photo fails to load */
+  color: var(--pure-white);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__media img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* At least 82% Deep Grove behind the text keeps white text above 4.5:1 on any part of the photo. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(47, 74, 53, 0.82);
+}
+
+.hero__text {
+  max-inline-size: 640px;
+}
+
+.hero__text > * + * {
+  margin-block-start: 20px;
+}
+
+.hero__eyebrow,
+.hero__lead {
+  color: var(--light-cream);
+}
+
+.hero h1 {
+  color: var(--pure-white);
+}
+
+.hero__lead {
+  font-size: 1.0625rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block-start: 12px;
+}
+
+@media (max-width: 639px) {
+  .hero__actions .btn {
+    inline-size: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-block-size: 640px;
+  }
+
+  .hero::before {
+    background: linear-gradient(to right, rgba(47, 74, 53, 0.85) 0%, rgba(47, 74, 53, 0.82) 55%, rgba(47, 74, 53, 0.3) 100%);
+  }
+
+  [dir="rtl"] .hero::before {
+    background: linear-gradient(to left, rgba(47, 74, 53, 0.85) 0%, rgba(47, 74, 53, 0.82) 55%, rgba(47, 74, 53, 0.3) 100%);
+  }
+
+  .hero__lead {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    min-block-size: 760px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    line-height: 1.125;
+  }
+}
+
+/* ---------- Section headings ---------- */
+
+.eyebrow + .section-title,
+.eyebrow + .visually-hidden + .section-title {
+  margin-block-start: 8px;
+}
+
+/* Short Sage ribbon under section headings, echoing the logo's swoosh. */
+.section-title::after {
+  content: '';
+  display: block;
+  inline-size: 64px;
+  block-size: 5px;
+  margin-block-start: 16px;
+  border-radius: 2px 999px 2px 999px;
+  background: var(--sage);
+}
+
+[dir="rtl"] .section-title::after {
+  transform: scaleX(-1);
+}
+
+.section-head {
+  text-align: center;
+}
+
+.section-head .section-title::after {
+  margin-inline: auto;
+}
+
+/* ---------- Text and photo sections (Who we are, Our mission) ---------- */
+
+.split {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+.split__text > * + * {
+  margin-block-start: 20px;
+}
+
+.split__text > .section-title {
+  margin-block-start: 8px;
+}
+
+/* Photo above the text below 1024 px. */
+.split__media {
+  order: -1;
+  margin: 0;
+}
+
+.split__media img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--sand-mist);
+  box-shadow: var(--shadow-card);
+}
+
+.badge-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-block-start: 20px;
+  border-block-start: 1px solid var(--sand-mist);
+  color: var(--deep-grove);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.badge-line__icon {
+  flex: none;
+  color: var(--leaf-green);
+}
+
+.highlight {
+  padding: 16px 20px;
+  border-inline-start: 4px solid var(--leaf-green);
+  border-start-end-radius: var(--radius-sm);
+  border-end-end-radius: var(--radius-sm);
+  background: var(--sand-mist);
+  color: var(--deep-grove);
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+  }
+
+  .split__media {
+    order: 0;
+  }
+
+  .split--reverse .split__media {
+    order: -1;
+  }
+
+  .split__media--portrait img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ---------- Our vision band ---------- */
+
+.vision {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 96px;
+  background: var(--deep-grove); /* readable even if the photo fails to load */
+  color: var(--pure-white);
+  text-align: center;
+}
+
+.vision__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.vision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(47, 74, 53, 0.82);
+}
+
+.vision__eyebrow {
+  color: var(--light-cream);
+}
+
+.vision__mark {
+  display: block;
+  margin-block: 20px 0;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  line-height: 0.7;
+  color: var(--sandstone-cream);
+}
+
+.vision__quote {
+  max-inline-size: 36ch;
+  margin-inline: auto;
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.vision__quote p {
+  max-inline-size: none;
+}
+
+.vision__content::after {
+  content: '';
+  display: block;
+  inline-size: 48px;
+  block-size: 1px;
+  margin: 28px auto 0;
+  background: var(--sage);
+}
+
+@media (min-width: 640px) {
+  .vision {
+    padding-block: 112px;
+  }
+
+  .vision__quote {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vision {
+    padding-block: 128px;
+  }
+
+  .vision__quote {
+    font-size: 2.125rem;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: 56px 40px;
+  background: var(--deep-grove);
+  color: var(--pure-white);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 32px;
+  justify-items: center;
+  text-align: center;
+}
+
+.site-footer__brand {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+/* The complete logo has a white background, so it sits on a white tile. */
+.site-footer__logo {
+  inline-size: 112px;
+  block-size: 112px;
+  padding: 6px;
+  border-radius: var(--radius-lg);
+  background: var(--pure-white);
+}
+
+.site-footer__summary {
+  color: var(--light-cream);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 24px;
+}
+
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  color: var(--pure-white);
+  text-decoration: none;
+}
+
+.site-footer__links a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__meta {
+  display: grid;
+  gap: 4px;
+  color: var(--light-cream);
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    align-items: center;
+    text-align: start;
+  }
+
+  .site-footer__brand {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: start;
+  }
+
+  .site-footer__nav {
+    justify-self: end;
+  }
+
+  .site-footer__meta {
+    grid-column: 1 / -1;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    inline-size: 100%;
+    padding-block-start: 24px;
+    border-block-start: 1px solid rgba(241, 228, 195, 0.25);
   }
 }
