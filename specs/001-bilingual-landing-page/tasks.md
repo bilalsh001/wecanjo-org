@@ -199,16 +199,17 @@ the sitemap, robots file, icons and manifest exist.
 
 ### Implementation for User Story 6
 
-- [ ] T052 [P] [US6] Add the English head metadata to `index.html` per contracts/seo-and-sharing.md: title (at most 60 characters), description (at most 160), canonical, three `hreflang` alternates, Open Graph (with image width, height and alt) and Twitter tags, `theme-color`, icon and manifest links
-- [ ] T053 [P] [US6] Add the Arabic head metadata to `ar/index.html` with the Arabic values from contracts/seo-and-sharing.md, same length limits
-- [ ] T054 [US6] Add the `NGO` JSON-LD block from contracts/seo-and-sharing.md to `index.html` and `ar/index.html` (same `@id`, description in the page's language)
-- [ ] T055 [P] [US6] Create `sitemap.xml` and `robots.txt` at the repository root exactly as in contracts/seo-and-sharing.md
-- [ ] T056 [P] [US6] Create `site.webmanifest` at the repository root with the fields in contracts/seo-and-sharing.md
+- [X] T052 [P] [US6] Add the English head metadata to `index.html` per contracts/seo-and-sharing.md: title (at most 60 characters), description (at most 160), canonical, three `hreflang` alternates, Open Graph (with image width, height and alt) and Twitter tags, `theme-color`, icon and manifest links
+- [X] T053 [P] [US6] Add the Arabic head metadata to `ar/index.html` with the Arabic values from contracts/seo-and-sharing.md, same length limits
+- [X] T054 [US6] Add the `NGO` JSON-LD block from contracts/seo-and-sharing.md to `index.html` and `ar/index.html` (same `@id`, description in the page's language)
+- [X] T055 [P] [US6] Create `sitemap.xml` and `robots.txt` at the repository root exactly as in contracts/seo-and-sharing.md
+- [X] T056 [P] [US6] Create `site.webmanifest` at the repository root with the fields in contracts/seo-and-sharing.md
 
 ### Verification for User Story 6
 
-- [ ] T057 [US6] Run `node tools/check-site.mjs --group seo` (tags and values, lengths, JSON-LD parses, sitemap/robots/manifest/icons exist) and fix every failure
-- [ ] T058 [US6] Paste each page's JSON-LD into a structured-data validator and fix any error in `index.html` / `ar/index.html`
+- [X] T057 [US6] Run `node tools/check-site.mjs --group seo` (tags and values, lengths, JSON-LD parses, sitemap/robots/manifest/icons exist) and fix every failure
+- [X] T058 [US6] Paste each page's JSON-LD into a structured-data validator and fix any error in `index.html` / `ar/index.html`
+  - Done by checking every type and property against the schema.org definitions (NGO, PostalAddress, Person, Country) and parsing both blocks; pasting into an online validator submits the founders' names to a third party, so it waits for the organization's OK (or a URL test after launch).
 
 **Checkpoint**: All user stories complete
 
