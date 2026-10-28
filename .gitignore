@@ -1,0 +1,12 @@
+# Tooling uses Node built-ins only; keep these out if packages are ever added.
+node_modules/
+*.log
+.env*
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/

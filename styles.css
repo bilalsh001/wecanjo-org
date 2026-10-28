@@ -1,158 +1,484 @@
-:root{
+/* We Can Organization: one stylesheet for the English and Arabic pages.
+   Tokens follow DESIGN.md. Layout uses logical properties, so dir="rtl" mirrors it. */
 
---primary:#5E8453;
---secondary:#88A870;
---accent:#D8CCA3;
---dark:#2F4A35;
---light:#FAF8F2;
+/* ---------- Design tokens ---------- */
 
+:root {
+  --leaf-green: #597e52;
+  --leaf-green-text: #4b6e45;
+  --deep-grove: #2f4a35;
+  --sage: #a0ad87;
+  --sandstone-cream: #e7dcb8;
+  --light-cream: #f1e4c3;
+  --paper-white: #faf8f2;
+  --pure-white: #ffffff;
+  --sand-mist: #f4efe2;
+  --charcoal-moss: #3a4237;
+  --stone: #6b6f63;
+
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow-card: 0 8px 24px rgba(47, 74, 53, 0.08);
+
+  --font-heading: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-*{
+/* ---------- Self-hosted fonts (fonts/, SIL Open Font License) ---------- */
 
-margin:0;
-padding:0;
-box-sizing:border-box;
-
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-body{
-
-font-family:Segoe UI,sans-serif;
-line-height:1.8;
-color:var(--dark);
-background:var(--light);
-
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.container{
-
-width:90%;
-max-width:1200px;
-margin:auto;
-
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-header{
-
-background:white;
-position:sticky;
-top:0;
-z-index:1000;
-
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/amiri-400-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FEFC;
 }
 
-nav{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 0;
-
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/amiri-700-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FEFC;
 }
 
-.logo{
-
-height:70px;
-
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-sans-arabic-400-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FEFC;
 }
 
-nav ul{
-
-display:flex;
-gap:25px;
-list-style:none;
-
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-sans-arabic-600-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FEFC;
 }
 
-nav a{
-
-text-decoration:none;
-color:var(--dark);
-
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-sans-arabic-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.hero{
-
-height:90vh;
-background:url(images/hero.jpg);
-background-size:cover;
-background-position:center;
-
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-sans-arabic-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.overlay{
-
-height:100%;
-background:rgba(0,0,0,.4);
-display:flex;
-align-items:center;
-justify-content:center;
-
+/* Arabic text (the Arabic page, and the "عربي" link on the English page) uses the Arabic faces. */
+:lang(ar) {
+  --font-heading: 'Amiri', 'Traditional Arabic', 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, system-ui, sans-serif;
 }
 
-.hero-content{
+/* ---------- Reset ---------- */
 
-text-align:center;
-color:white;
-max-width:800px;
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.hero h1{
-
-font-size:3rem;
-
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-.btn{
-
-display:inline-block;
-margin-top:20px;
-padding:15px 30px;
-background:var(--accent);
-color:#222;
-text-decoration:none;
-border-radius:30px;
-
+body {
+  margin: 0;
+  background: var(--paper-white);
+  color: var(--charcoal-moss);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.625;
 }
 
-.section{
-
-padding:80px 0;
-
+h1,
+h2,
+h3,
+p,
+blockquote,
+figure {
+  margin: 0;
 }
 
-.green{
-
-background:#eef3ea;
-
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.cards{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
-
+img,
+picture,
+svg {
+  display: block;
+  max-inline-size: 100%;
 }
 
-.card{
-
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,.08);
-
+img {
+  block-size: auto;
 }
 
-footer{
+a {
+  color: var(--leaf-green-text);
+  text-underline-offset: 0.2em;
+}
 
-background:var(--dark);
-color:white;
-text-align:center;
-padding:30px;
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
 
+/* ---------- Base typography ---------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--deep-grove);
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.333;
+}
+
+p {
+  max-inline-size: 70ch;
+  overflow-wrap: break-word;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--leaf-green-text);
+}
+
+/* Arabic is never letter-spaced or uppercased; Amiri needs a little more line height. */
+:lang(ar) {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+:lang(ar) .eyebrow {
+  font-size: 0.875rem;
+}
+
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3 {
+  line-height: 1.4;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.125rem;
+    line-height: 1.667;
+  }
+
+  body:lang(ar) {
+    font-size: 1.0625rem;
+    line-height: 1.765;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.143;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+}
+
+/* ---------- Layout and utilities ---------- */
+
+.container {
+  inline-size: 100%;
+  max-inline-size: calc(1200px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+:root {
+  --gutter: 20px;
+  --section-space: 64px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 32px;
+    --section-space: 88px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 48px;
+    --section-space: 112px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --gutter: 64px;
+  }
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  z-index: 100;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--deep-grove);
+  color: var(--pure-white);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Focus ring: 3px Leaf Green with a 2px white gap, on every interactive element. */
+:focus-visible {
+  outline: 3px solid var(--leaf-green);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--pure-white);
+}
+
+/* Minimum 44×44 px touch target. */
+.target {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Header and navigation ---------- */
+
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  background: var(--pure-white);
+  border-block-end: 1px solid transparent;
+}
+
+/* Hairline once the page scrolls; always shown when scripts don't run. */
+.site-header.is-scrolled,
+.no-js .site-header {
+  border-block-end-color: var(--sage);
+}
+
+/* On very short screens the header scrolls away instead of covering the page. */
+@media (max-height: 499px) {
+  .site-header {
+    position: relative;
+  }
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-block: 10px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-block-size: 44px;
+  color: var(--deep-grove);
+  text-decoration: none;
+}
+
+.brand__name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.site-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 20px;
+  inline-size: 100%;
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  color: var(--deep-grove);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav__link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--leaf-green);
+  text-decoration-thickness: 2px;
+}
+
+.lang-switch-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--sage);
+  border-radius: 999px;
+}
+
+.lang-current,
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 38px;
+  min-inline-size: 44px;
+  padding-inline: 12px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.lang-current {
+  background: var(--leaf-green);
+  color: var(--pure-white);
+}
+
+.lang-switch {
+  color: var(--deep-grove);
+  text-decoration: none;
+}
+
+.lang-switch:hover {
+  background: var(--sand-mist);
+}
+
+@media (min-width: 1024px) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+    padding-block: 12px;
+  }
+
+  .brand__name {
+    font-size: 1.625rem;
+  }
+
+  .site-menu {
+    flex-wrap: nowrap;
+    gap: 32px;
+    inline-size: auto;
+  }
+
+  .site-nav__list {
+    gap: 28px;
+  }
 }

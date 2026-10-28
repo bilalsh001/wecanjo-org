@@ -52,6 +52,7 @@ colors:
   pure-white: '#FFFFFF'
   sand-mist: '#F4EFE2'
   leaf-green: '#597E52'
+  leaf-green-text: '#4B6E45'
   deep-grove: '#2F4A35'
   sage: '#A0AD87'
   sandstone-cream: '#E7DCB8'
@@ -141,7 +142,8 @@ It should read as a credible, modern civil-society organization: elegant rather 
 - **Sand Mist (`#F4EFE2`)**: Alternating section background for rhythm between sections.
 
 ### Brand & Interactive
-- **Leaf Green (`#597E52`)**: Primary brand color for primary buttons (white text, 4.6:1 contrast), links, the active navigation state and icons.
+- **Leaf Green (`#597E52`)**: Primary brand color for primary buttons (white text, 4.6:1 contrast), the active navigation underline, icons and large elements.
+- **Leaf Green Text (`#4B6E45`)**: A slightly deeper Leaf Green for small text (eyebrow labels, credential lines, links). Plain Leaf Green reaches only 4.4:1 on Paper White, so small text uses this shade, which reaches 5.5:1 on Paper White and 5.0:1 on Sand Mist.
 - **Deep Grove (`#2F4A35`)**: Headings, button hover state, footer background and image overlays.
 - **Sage (`#A0AD87`)**: Secondary accents, hairline dividers, decorative ribbon flourishes and soft icon backgrounds.
 - **Sandstone Cream (`#E7DCB8`)**: Highlight panels, quote marks and secondary fills.

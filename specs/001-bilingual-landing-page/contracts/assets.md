@@ -10,8 +10,12 @@ which are never modified (FR-015). Each generated JPEG is at most 300 KB (the sc
 |----------|-----|-----------------|------|
 | `images/hero.jpg` | Hero, 640 px and wider | `images/web/hero-960.jpg`, `hero-1440.jpg`, `hero-1920.jpg` | 3:2 landscape, centered |
 | `images/hero.jpg` | Hero, phones | `images/web/hero-portrait-480.jpg`, `-720.jpg`, `-1080.jpg` | 4:5 portrait, centered on the hands |
-| `images/women.jpg` | Who we are | `images/web/women-480.jpg`, `-800.jpg`, `-1200.jpg` | Original aspect (2:3) |
-| `images/community.jpg` | Vision band background | `images/web/community-640.jpg`, `-1280.jpg`, `-1920.jpg` | 16:9 landscape, focused on the lower half (theatre) |
+| `images/women.jpg` | Who we are | `images/web/women-480.jpg`, `-800.jpg`, `-1080.jpg` | Original aspect (2:3) |
+| `images/community.jpg` | Vision band background | `images/web/community-640.jpg`, `-1280.jpg`, `-1440.jpg` | 16:9 landscape, focused on the lower half (theatre) |
+
+The largest women and community widths are capped at 1080 and 1440 px because their detail
+would not fit 300 KB at larger sizes; the band sits under a dark overlay, so mild upscaling on
+very wide screens is not visible.
 | `images/youth.jpg` | How we create change | `images/web/youth-480.jpg`, `-800.jpg`, `-1200.jpg` | Original aspect (16:9) |
 
 Markup rules: `<picture>`/`srcset` with `sizes`, explicit `width` and `height`, and descriptions from

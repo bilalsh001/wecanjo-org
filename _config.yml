@@ -1,0 +1,7 @@
+# GitHub Pages (Jekyll) settings: keep project files off the public site (FR-032).
+# Dot-folders such as .specify/ and .claude/ are already skipped by Jekyll.
+exclude:
+  - specs/
+  - tools/
+  - DESIGN.md
+  - README.md

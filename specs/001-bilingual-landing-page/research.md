@@ -77,8 +77,9 @@ CLARIFICATION remains.
   copies to `images/web/<name>-<width>.jpg`. Quality starts at 82 and steps down (not below 60)
   until each file is at most 280 KB, leaving headroom under the 300 KB limit; metadata is dropped.
   The hero uses art direction: a 3:2 landscape crop from 640 px up and a 4:5 portrait crop for
-  phones. Widths: hero landscape 960/1440/1920, hero portrait 480/720/1080, women and youth
-  480/800/1200, community 640/1280/1920. Pages use `<picture>`, `srcset` and `sizes` with explicit
+  phones. Widths: hero landscape 960/1440/1920, hero portrait 480/720/1080, women 480/800/1080,
+  youth 480/800/1200, community 640/1280/1440 (women and community capped so they fit the
+  budget; found when the script first ran). Pages use `<picture>`, `srcset` and `sizes` with explicit
   `width`/`height`; images below the first screen get `loading="lazy" decoding="async"`, and the
   hero gets `fetchpriority="high"` plus a matching `<link rel="preload" as="image" imagesrcset>`.
 - **Rationale**: FR-015 and the Principle V budgets with no package installs (Principle VII);
