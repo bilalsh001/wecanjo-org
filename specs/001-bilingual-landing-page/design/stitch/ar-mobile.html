@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>منظمة نحن نستطيع | تمكين المرأة والشباب في الأردن</title>
+<!-- Google Fonts: Amiri & IBM Plex Sans Arabic -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#a9d19e",
+            "primary-fixed": "#c4eeb9",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#afceb3",
+            "secondary": "#49654e",
+            "on-primary-container": "#f9fff1",
+            "surface-container-high": "#eae8e2",
+            "surface": "#fbf9f3",
+            "on-secondary-fixed-variant": "#324d38",
+            "secondary-fixed": "#cbebce",
+            "on-primary-fixed-variant": "#2c4f28",
+            "on-tertiary-container": "#fffcff",
+            "inverse-primary": "#a9d19e",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#06200f",
+            "inverse-surface": "#30312d",
+            "on-surface-variant": "#42483f",
+            "inverse-on-surface": "#f2f1eb",
+            "outline-variant": "#c2c8bd",
+            "tertiary-fixed-dim": "#d1c6a3",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ede2be",
+            "outline": "#73796f",
+            "surface-container-low": "#f5f3ee",
+            "primary-container": "#597e52",
+            "surface-variant": "#e4e2dd",
+            "surface-tint": "#43673d",
+            "primary": "#41653b",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1b1c19",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#201b05",
+            "surface-bright": "#fbf9f3",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e4e2dd",
+            "secondary-container": "#cbebce",
+            "on-tertiary-fixed-variant": "#4d472c",
+            "tertiary-container": "#7d7557",
+            "tertiary": "#645c40",
+            "background": "#fbf9f3",
+            "surface-container": "#f0eee8",
+            "on-secondary-container": "#4f6b54",
+            "on-primary-fixed": "#002202",
+            "on-background": "#1b1c19",
+            "surface-dim": "#dcdad4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "8px",
+            "space-lg": "48px",
+            "space-sm": "16px",
+            "space-md": "24px",
+            "margin": "48px",
+            "gutter": "32px",
+            "space-xl": "64px"
+          },
+          "fontFamily": {
+            "eyebrow": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-lg": ["Amiri", "serif"],
+            "button": ["IBM Plex Sans Arabic", "sans-serif"],
+            "body-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-display-mobile": ["Amiri", "serif"],
+            "body-lg-mobile": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-md": ["Amiri", "serif"],
+            "headline-display": ["Amiri", "serif"],
+            "headline-lg-mobile": ["Amiri", "serif"]
+          },
+          "fontSize": {
+            "eyebrow": ["13px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "button": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "30px", "fontWeight": "400" }],
+            "headline-display-mobile": ["36px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-lg-mobile": ["16px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "headline-display": ["52px", { "lineHeight": "64px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "42px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-lg text-body-lg selection:bg-secondary-fixed selection:text-on-secondary-fixed" dir="rtl">
+<!-- 1. Header (TopNavBar) -->
+<header class="sticky top-0 z-50 w-full bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm transition-colors duration-200">
+<div class="w-full px-5 flex items-center justify-between h-[68px]">
+<a class="flex items-center gap-2.5 focus:outline-none" href="#">
+<img alt="شعار منظمة نحن نستطيع" class="h-11 w-auto object-contain rounded-lg p-0.5" src="https://lh3.googleusercontent.com/aida/AEtjO1WJAFZXfHMcuH_CiUy08xa_fIxin7KQ4Hbvua4OtNc7cqeYvb1v3WyJ0ZYQzs9WZlmyLw02oh_juRyYxPNxtnPRnSwXuf4-RlnBOFveaqlQ4SqFrbFMG5LOozohHFd-phpYOsycxyDPfaUvQnbunyvgHkhbZaTK_mMN7_5GFAD8GCJHFG0hijbh2K0erjDR04Am1gvt9oM0kHf4E0SH7R_O9Zz9MuPrZM4il-lAVP7WhhzifVWhZ8Heww"/>
+<span class="font-headline-md text-[20px] font-bold text-primary tracking-tight leading-none">
+منظمة نحن نستطيع
+</span>
+</a>
+<button aria-label="فتح القائمة" class="w-11 h-11 flex items-center justify-center rounded-lg text-[#2F4A35] hover:bg-surface-container transition-colors focus:outline-none">
+<span class="material-symbols-outlined text-[28px]" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<!-- 2. Hero Section -->
+<section class="relative w-full min-h-[640px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="أيدي متعددة تجتمع بتعاون" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1WCrXkjM7BtP6_GvdjC_y_V-8_onjGyLZNF_YeMRSRFfy3jBviRnWcMIopa617KKzGpqU5OWVjXg9_Y_tQbfPyjbDX15c0D6Ab9psfrDnf5_Db5RRJ7Z6iQtLwbK5wlTF8x6CAQ4_1xYKNIpL_UeBp0hjWcmIBZ9rKJD8kMQzUiLjK31qxCIIJaXcQCQ5HfB_c_psOCTmXwPwyTAt0JsbGeIB0W5NVdSHD7bQSXqAJBJnL6qZ8581ENCw"/>
+<div class="absolute inset-0 bg-gradient-to-l from-[#2F4A35]/95 via-[#2F4A35]/80 to-[#2F4A35]/40 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#2F4A35]/90 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-5 py-16">
+<div class="w-full text-right">
+<div class="inline-flex items-center gap-2 mb-3">
+<span class="h-1.5 w-1.5 rounded-full bg-primary-fixed"></span>
+<p class="font-eyebrow text-xs text-tertiary-fixed tracking-wider">
+منظمة مجتمعية · الأردن
+</p>
+</div>
+<h1 class="font-headline-display text-[32px] leading-[1.25] text-surface-container-lowest font-bold mb-4">
+تمكين المرأة والشباب من أجل مستقبل أفضل
+</h1>
+<p class="font-body-lg text-body-lg-mobile text-tertiary-fixed mb-8 leading-relaxed">
+نوفّر الفرص والموارد لتتمكّن كل امرأة وكل شاب وشابة في الأردن من تحقيق أحلامهم وصناعة تغيير إيجابي.
+</p>
+<div class="flex flex-col gap-3 w-full">
+<a class="w-full h-12 flex items-center justify-center bg-primary-container text-on-primary font-button text-button rounded-xl shadow-md hover:bg-secondary transition-all duration-200 focus:ring-4 focus:ring-primary-fixed/30 text-center" href="#about">
+تعرّف علينا
+</a>
+<a class="w-full h-12 flex items-center justify-center border-2 border-surface-container-lowest text-surface-container-lowest font-button text-button rounded-xl hover:bg-surface-container-lowest/15 transition-all duration-200 text-center" href="#contact">
+تواصل معنا
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. About Us Section -->
+<section class="bg-background py-20 lg:py-28 border-b border-outline-variant/20" id="about">
+<div class="w-full px-5 py-14">
+<div class="flex flex-col gap-6">
+<div class="w-full rounded-xl overflow-hidden shadow-[0_8px_24px_rgba(47,74,53,0.08)] border border-outline-variant/20 bg-surface-container-lowest p-2">
+<img alt="نساء في ورشة عمل مجتمعية في الأردن" class="w-full h-[260px] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1Uy4lzlubOhv-ygtMvaMVIkGTIvSc6KnpLP0ANGyH0HZ2r4T1gesKPh6MQrMmWX7SMGPLtZajX44iVL867MHhax8EdhP6ow0ys8S-m6GqW1523JEEKAP__dfLtTsWzAr80FUh0mVa8iX9SnNInE8qkCCWk-3QCpTS5_ekheG9aloZWt8Jz47LT-OSwgHSrufU76JrEIHD8jnOViZ-oE54LNLOfZyj04XCoq4lm7z_nnJtQ1Z8HBscn3Gos"/>
+</div>
+<div class="flex flex-col text-right">
+<div class="inline-block mb-2">
+<span class="font-eyebrow text-xs text-primary font-bold">عن المنظمة</span>
+</div>
+<h2 class="font-headline-lg text-[32px] leading-tight text-on-surface mb-3">
+من نحن
+</h2>
+<div class="w-12 h-1 bg-primary-container/70 rounded-full mb-5"></div>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed mb-5">
+تكرّس منظمة نحن نستطيع جهودها لخدمة المرأة والشباب من خلال مجموعة متنوعة من البرامج. نحن مسجّلون في الأردن كمنظمة غير حكومية محلية ومنظمة مجتمعية، ونعمل على توسيع أثرنا وإحداث تغيير هادف على مستويات متعددة.
+</p>
+<div class="pt-4 border-t border-outline-variant/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="verified">verified</span>
+<span class="font-button text-sm text-on-surface">منظمة غير حكومية / مجتمعية مسجّلة في الأردن</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Vision Section -->
+<section class="relative w-full overflow-hidden" id="vision">
+<div class="absolute inset-0 z-0">
+<img alt="معالم أثرية وعمرانية في عمّان" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1Xhkw-8zrCVwWTutoHpsgKZm34z0zKy-cI7rDgmNHnel9t51gm_jsdnhGk4esVGQzXczrjvh8AIM6ruxuXTtq2q0rqhM_THxImLt7SIDgcywBDmdssbJAIGsTcoYVm5A2jTDBORFg4WQkTiCVdXduaDTxFomV-q3f95RDG1Tj1NxNq74LQb2OPSvxtQByMKQBaCcVzIzA9gEZx4-VpCL56yXq8FNpHvG5wYpV86m1gdjAfbzhEa3_s1QTU"/>
+<div class="absolute inset-0 bg-[#2F4A35]/85 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[1px]"></div>
+</div>
+<div class="relative z-10 w-full py-16 px-5 text-center text-surface-container-lowest">
+<p class="font-eyebrow text-xs text-tertiary-fixed mb-3">
+رؤيتنا
+</p>
+<div aria-hidden="true" class="text-[#E7DCB8] text-5xl font-serif leading-none select-none mb-2">
+“
+</div>
+<blockquote class="font-headline-lg text-[24px] italic font-normal text-surface-container-lowest leading-snug mx-auto mb-5">
+مجتمعٌ يكرّس جهوده لتنمية جميع النساء والشباب ونجاحهم، حيث يستطيع الأفراد تحقيق أحلامهم والإسهام إسهامًا هادفًا في مجتمعٍ حيويٍّ وعادل.
+</blockquote>
+<div class="w-10 h-0.5 bg-tertiary-fixed/60 mx-auto rounded-full"></div>
+</div>
+</section>
+<!-- 5. Mission Section -->
+<section class="bg-background py-20 lg:py-28 border-b border-outline-variant/20" id="mission">
+<div class="w-full px-5 py-14">
+<div class="flex flex-col gap-6">
+<div class="w-full rounded-xl overflow-hidden shadow-[0_8px_24px_rgba(47,74,53,0.08)] border border-outline-variant/20 bg-surface-container-lowest p-2">
+<img alt="شباب وشابات في ورشة تدريبية" class="w-full h-[250px] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1X8LZgFTtrsrsOMyoZTU474W98jijrt-dchDRsuN9unkrtlqii02p_sx-qh7UU_3uX7I-ze6SXLAr4BC9y3M3h99nCj8E0d5m2txwix_B83a91x_4L5VpDd9Mvx14eIRYFHe78d_eLsIMQ9LcmAOq3AObMCbsjoaJbuqLcyx7nDdE_S-Kexlb6CUU9bs5oQ8sNrtas5ocUZb3WaWYjJfTykuQbx1ra4vruge221HERZZIohVMkqTqY9uzA"/>
+</div>
+<div class="flex flex-col text-right">
+<div class="inline-block mb-2">
+<span class="font-eyebrow text-xs text-primary font-bold">رسالتنا</span>
+</div>
+<h2 class="font-headline-lg text-[32px] leading-tight text-on-surface mb-4">
+كيف نصنع التغيير
+</h2>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed mb-4">
+بناء منصة ديناميكية تدعم الشباب والنساء وتشجّعهم وتمكّنهم من الازدهار اجتماعيًا واقتصاديًا على جميع المستويات.
+</p>
+<div class="border-r-4 border-primary-container pr-4 pl-2 py-2 my-2 bg-surface-container-low rounded-l-lg text-right">
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface italic font-medium leading-relaxed">
+من خلال تسخير القوة الجماعية لمنظومتنا، نؤمن بأن نجاح الفرد يقود إلى ازدهار المجتمع.
+</p>
+</div>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed mt-4">
+نلتزم بتهيئة بيئة تتيح لكل شاب وشابة ولكل امرأة الفرص والموارد اللازمة لتحقيق أحلامهم وإحداث تغيير إيجابي.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Founders Section -->
+<section class="bg-surface-container-low py-24 border-b border-outline-variant/20" id="founders">
+<div class="w-full px-5 py-14">
+<div class="text-center mb-10">
+<span class="font-eyebrow text-xs text-primary block mb-2 font-bold">المؤسسون</span>
+<h2 class="font-headline-lg text-[32px] leading-tight text-on-surface">الفريق المؤسس</h2>
+<div class="w-12 h-1 bg-primary-container/70 rounded-full mx-auto mt-3"></div>
+</div>
+<div class="flex flex-col gap-4 w-full">
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_8px_24px_rgba(47,74,53,0.06)] border border-outline-variant/30 flex gap-4 items-start text-right">
+<div class="w-14 h-14 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary font-headline-md text-xl font-bold shadow-inner">
+ID
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-xl text-on-surface mb-0.5">إنصاف دعاس</h3>
+<p class="font-eyebrow text-xs text-primary font-bold tracking-wider mb-2">
+ماجستير في دراسات النوع الاجتماعي
+</p>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed">
+مؤسِّسة مبادرة «نحن نستطيع»، وخبيرة في تعميم مراعاة النوع الاجتماعي وإدماجه وفي التنمية المستدامة.
+</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_8px_24px_rgba(47,74,53,0.06)] border border-outline-variant/30 flex gap-4 items-start text-right">
+<div class="w-14 h-14 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary font-headline-md text-xl font-bold shadow-inner">
+MO
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-xl text-on-surface mb-0.5">د. ميسون العتوم</h3>
+<p class="font-eyebrow text-xs text-primary font-bold tracking-wider mb-2">
+دكتوراه في علم الاجتماع
+</p>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed">
+عضو هيئة تدريس، مركز دراسات المرأة، الجامعة الأردنية.
+</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_8px_24px_rgba(47,74,53,0.06)] border border-outline-variant/30 flex gap-4 items-start text-right">
+<div class="w-14 h-14 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary font-headline-md text-xl font-bold shadow-inner">
+AD
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-xl text-on-surface mb-0.5">د. عبير دبابنة</h3>
+<p class="font-eyebrow text-xs text-primary font-bold tracking-wider mb-2">
+دكتوراه في دراسات النوع الاجتماعي وحقوق الإنسان
+</p>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed">
+مفوّضة في الهيئة المستقلة للانتخاب في الأردن.
+</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_8px_24px_rgba(47,74,53,0.06)] border border-outline-variant/30 flex gap-4 items-start text-right">
+<div class="w-14 h-14 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary font-headline-md text-xl font-bold shadow-inner">
+ES
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-xl text-on-surface mb-0.5">عماد شهاب</h3>
+<p class="font-eyebrow text-xs text-primary font-bold tracking-wider mb-2">
+بكالوريوس رياضيات
+</p>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant leading-relaxed">
+مؤسس ورئيس منظمة بروكلي غير الربحية.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Contact Section -->
+<section class="bg-background py-20 lg:py-28" id="contact">
+<div class="w-full px-5 py-14">
+<div class="text-center mb-10">
+<span class="font-eyebrow text-xs text-primary block mb-2 font-bold">تواصل</span>
+<h2 class="font-headline-lg text-[32px] leading-tight text-on-surface">تواصل معنا</h2>
+<p class="font-body-lg-mobile text-body-lg-mobile text-on-surface-variant mt-2">
+نرحّب بالتعاون والاستفسارات والحوار مع شركائنا في المجتمع في جميع أنحاء الأردن.
+</p>
+</div>
+<div class="flex flex-col gap-5 w-full text-right">
+<!-- Email Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-[0_8px_24px_rgba(47,74,53,0.08)] border-2 border-primary-container flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="mail">mail</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-1">راسلنا عبر البريد الإلكتروني</h3>
+<p class="text-on-surface-variant text-sm mb-4">للاستفسارات العامة، مقترحات الشراكة، وتفاصيل البرامج:</p>
+<a class="font-button text-button text-primary hover:underline inline-flex items-center gap-2 text-base break-all" href="mailto:info@wecan-jo.org">
+<span dir="ltr">info@wecan-jo.org</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_backward">arrow_backward</span>
+</a>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-2 text-on-surface-variant text-xs font-medium">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="location_pin">location_pin</span>
+عمّان، الأردن
+</div>
+</div>
+<!-- Phone & WhatsApp Card -->
+<div class="w-full bg-surface-container-lowest/50 rounded-xl p-6 border border-dashed border-outline-variant flex flex-col justify-between relative overflow-hidden">
+<div class="opacity-75">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-2xl opacity-60" data-icon="call">call</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-surface-container-highest text-on-surface-variant">
+قريبًا
+</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-1">الهاتف وواتساب</h3>
+<p class="text-on-surface-variant text-sm">خطوط مباشرة للدعم الإداري ومكاتب التواصل المجتمعي المحلية.</p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 text-outline text-xs italic">
+قيد التفعيل والتجهيز
+</div>
+</div>
+<!-- Social Media Card -->
+<div class="w-full bg-surface-container-lowest/50 rounded-xl p-6 border border-dashed border-outline-variant flex flex-col justify-between relative overflow-hidden">
+<div class="opacity-75">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-2xl opacity-60" data-icon="share">share</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-surface-container-highest text-on-surface-variant">
+قريبًا
+</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-1">وسائل التواصل الاجتماعي</h3>
+<p class="text-on-surface-variant text-sm mb-4">تابعوا مبادراتنا وتغطيات فعالياتنا عبر المنصات الرقمية.</p>
+<div class="flex items-center gap-2.5 text-outline opacity-60">
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs">FB</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs">IG</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs">IN</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs">X</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 text-outline text-xs italic">
+إطلاق الحسابات الرسمية قريبًا
+</div>
+</div>
+<!-- Contact Form Card -->
+<div class="w-full bg-surface-container-lowest/50 rounded-xl p-6 border border-dashed border-outline-variant relative">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-md text-xl text-on-surface">نموذج التواصل</h3>
+<p class="text-on-surface-variant text-xs mt-0.5">أرسل لنا رسالة مباشرة عبر الموقع الإلكتروني.</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-surface-container-highest text-on-surface-variant shrink-0">
+قريبًا
+</span>
+</div>
+<div class="flex flex-col gap-3 opacity-50 pointer-events-none">
+<div>
+<label class="block text-xs font-medium text-outline mb-1 text-right">الاسم</label>
+<input class="w-full rounded-lg bg-surface-container-low border-outline-variant text-sm py-2 px-3 text-right" disabled="" placeholder="مثال: رانيا سالم" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-medium text-outline mb-1 text-right">البريد الإلكتروني</label>
+<input class="w-full rounded-lg bg-surface-container-low border-outline-variant text-sm py-2 px-3 text-right" disabled="" placeholder="name@domain.com" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-medium text-outline mb-1 text-right">الرسالة</label>
+<textarea class="w-full rounded-lg bg-surface-container-low border-outline-variant text-sm py-2 px-3 resize-none text-right" disabled="" placeholder="اكتب رسالتك هنا..." rows="3"></textarea>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="w-full bg-outline-variant/40 text-on-surface-variant font-button text-xs py-2.5 px-4 rounded-lg cursor-not-allowed text-center" disabled="">
+إرسال الرسالة (معطّل حاليًا)
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Footer -->
+<footer class="w-full bg-[#2F4A35] text-surface-container-lowest border-t border-outline-variant/20 transition-colors duration-200">
+<div class="w-full px-5 py-12 flex flex-col items-center text-center gap-8">
+<div class="flex flex-col items-center gap-3">
+<div class="bg-surface-container-lowest p-2 rounded-xl shadow-md w-16 h-16 flex items-center justify-center shrink-0">
+<img alt="شعار منظمة نحن نستطيع" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJAFZXfHMcuH_CiUy08xa_fIxin7KQ4Hbvua4OtNc7cqeYvb1v3WyJ0ZYQzs9WZlmyLw02oh_juRyYxPNxtnPRnSwXuf4-RlnBOFveaqlQ4SqFrbFMG5LOozohHFd-phpYOsycxyDPfaUvQnbunyvgHkhbZaTK_mMN7_5GFAD8GCJHFG0hijbh2K0erjDR04Am1gvt9oM0kHf4E0SH7R_O9Zz9MuPrZM4il-lAVP7WhhzifVWhZ8Heww"/>
+</div>
+<span class="font-headline-md text-2xl font-bold tracking-tight text-surface-container-lowest block">
+منظمة نحن نستطيع
+</span>
+<p class="text-tertiary-fixed text-sm font-medium max-w-xs">
+تمكين المرأة والشباب في جميع أنحاء الأردن.
+</p>
+</div>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-lowest/10 border border-surface-container-lowest/20">
+<span class="material-symbols-outlined text-primary-fixed text-sm" data-icon="policy">policy</span>
+<span class="text-xs text-tertiary-fixed font-medium">منظمة غير حكومية مسجّلة في الأردن</span>
+</div>
+<div class="w-full pt-6 border-t border-surface-container-lowest/15 flex flex-col items-center gap-6">
+<nav aria-label="روابط التذييل">
+<ul class="flex flex-wrap items-center justify-center gap-5">
+<li>
+<a class="text-tertiary-fixed hover:text-surface-container-lowest font-button text-sm transition-colors duration-200" href="#about">عن المنظمة</a>
+</li>
+<li>
+<a class="text-tertiary-fixed hover:text-surface-container-lowest font-button text-sm transition-colors duration-200" href="#vision">رؤيتنا</a>
+</li>
+<li>
+<a class="text-tertiary-fixed hover:text-surface-container-lowest font-button text-sm transition-colors duration-200" href="#mission">رسالتنا</a>
+</li>
+<li>
+<a class="text-tertiary-fixed hover:text-surface-container-lowest font-button text-sm transition-colors duration-200" href="#founders">المؤسسون</a>
+</li>
+<li>
+<a class="text-tertiary-fixed hover:text-surface-container-lowest font-button text-sm transition-colors duration-200" href="#contact">تواصل معنا</a>
+</li>
+</ul>
+</nav>
+<p class="text-xs text-surface-container-lowest/70 font-normal">
+© 2026 منظمة نحن نستطيع. جميع الحقوق محفوظة.
+</p>
+</div>
+</div>
+</footer>
+</body></html>
