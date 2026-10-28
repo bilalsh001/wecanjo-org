@@ -177,7 +177,7 @@ It should read as a credible, modern civil-society organization: elegant rather 
 - **Mission and About**: Text beside a supporting photograph with `16px` rounded corners; a slim Leaf Green rule marks key sentences.
 - **Founder cards**: White card, `16px` radius, soft green-tinted shadow (`0 8px 24px rgba(47,74,53,0.08)`), an 88px circular Light Cream initials avatar with Deep Grove EB Garamond initials (a stand-in for future headshots), the name in EB Garamond 22px, the degree in small uppercase Leaf Green Manrope, and the role in Manrope 16px.
 - **Contact**: A prominent email card (`info@wecan-jo.org`, opens the visitor's email app) with Amman, Jordan as the location. Phone/WhatsApp, social media links (Facebook, Instagram, LinkedIn, X) and a short contact form appear as clearly marked "Coming soon" placeholders using the placeholder state above.
-- **Footer**: Deep Grove background; the logo on a white rounded tile; a one-line mission summary; quick links; "Registered NGO in Jordan"; "© 2026 We Can Organization".
+- **Footer**: Deep Grove background; the logo on a white rounded tile; a one-line mission summary; quick links; "Registered NGO / CBO in Jordan"; "© 2026 We Can Organization".
 
 ## 5. Layout Principles
 

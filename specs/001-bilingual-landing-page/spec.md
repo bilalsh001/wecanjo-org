@@ -388,7 +388,7 @@ all present and correct.
   390, 768, 1280 and 1440 px in both languages.
 - **SC-005**: On a typical mobile connection (a simulated mid-range phone on a slow 4G network), the
   hero headline is visible within 2.5 seconds and
-  the page responds to input without noticeable delay.
+  the page responds to a tap or click within 0.2 seconds.
 - **SC-006**: Automated audits, run each time with the same widely used audit tool in its standard
   mobile configuration, score at least 90 out of 100 for performance,
   accessibility, best practices and search-friendliness in both languages, and an automated
