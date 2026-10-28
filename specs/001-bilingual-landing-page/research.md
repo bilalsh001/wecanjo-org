@@ -83,11 +83,22 @@ CLARIFICATION remains.
   budget; found when the script first ran). Pages use `<picture>`, `srcset` and `sizes` with explicit
   `width`/`height`; images below the first screen get `loading="lazy" decoding="async"`, and the
   hero gets `fetchpriority="high"` plus a matching `<link rel="preload" as="image" imagesrcset>`.
-- **Rationale**: FR-015 and the Principle V budgets with no package installs (Principle VII);
-  originals stay untouched.
-- **Alternatives considered**: WebP/AVIF through sharp, Squoosh or cwebp (needs a package download;
-  can be added later); image optimization in a GitHub Actions workflow (adds a pipeline); a CSS
-  background hero (no description, later discovery by the browser).
+- **Revision (2026-10-29, T072)**: Principle V asks for modern-format copies, so
+  `tools/make-webp.mjs` (Node built-ins) now makes a WebP copy of every photo and logo file: it
+  serves a local page to headless Microsoft Edge or Chrome, which encodes each JPEG/PNG web copy
+  with the browser's own WebP encoder (quality 0.8 for photos, 0.9 for logos, stepping down until
+  the WebP is smaller) and posts it back. Each `<picture>` lists the WebP copies first and keeps the
+  JPEG/PNG as the fallback; the hero preloads point at the WebP files with `type="image/webp"`.
+  WebP saves 33–47% on most photos, 4–21% on the already heavily compressed women and Amman
+  photos, and about 85% on the logos. The sharing image stays JPEG and the icons PNG/ICO.
+- **Rationale**: FR-015, Principle V (web-sized, modern-format copies and budgets) with no
+  package installs (Principle VII); originals stay untouched.
+- **Alternatives considered**: WebP/AVIF through sharp, Squoosh or cwebp (needs a package
+  download); encoding from the originals in the browser (would duplicate the crop rules of the
+  PowerShell script, so the WebP copies are made from the finished JPEG/PNG copies instead, which
+  showed no visible loss); AVIF (Chromium's canvas cannot encode it); image optimization in a
+  GitHub Actions workflow (adds a pipeline); a CSS background hero (no description, later
+  discovery by the browser).
 
 ## R7. Logo assets
 

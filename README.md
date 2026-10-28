@@ -149,14 +149,22 @@ it stays a placeholder.
 
 ## Regenerate the web images
 
-Only needed when an original photo or the logo changes. From the repository folder:
+Only needed when an original photo or the logo changes. From the repository folder, run both
+steps in this order:
 
 ```bash
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-web-images.ps1
 ```
 
-The script writes the copies listed in `specs/001-bilingual-landing-page/contracts/assets.md`,
-keeps every JPEG under 300 KB and never touches the originals in `images/`.
+```bash
+node tools/make-webp.mjs
+```
+
+The first script writes the JPEG and PNG copies listed in
+`specs/001-bilingual-landing-page/contracts/assets.md`, keeps every JPEG under 300 KB and never
+touches the originals in `images/`. The second makes a smaller WebP copy of each photo and logo
+file using Microsoft Edge (or Chrome) in the background, so nothing needs installing; the pages
+offer the WebP first and the JPEG/PNG to browsers that cannot show WebP.
 
 ## Refresh the fonts
 

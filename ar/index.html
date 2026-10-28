@@ -31,8 +31,8 @@
   <meta name="twitter:image:alt" content="شعار جمعية نحن نستطيع">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/amiri-400-arabic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/images/web/hero-portrait-720.jpg" imagesrcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-720.jpg 720w, /images/web/hero-portrait-1080.jpg 1080w" imagesizes="100vw" media="(max-width: 639px)" fetchpriority="high">
-  <link rel="preload" as="image" href="/images/web/hero-1440.jpg" imagesrcset="/images/web/hero-960.jpg 960w, /images/web/hero-1440.jpg 1440w, /images/web/hero-1920.jpg 1920w" imagesizes="100vw" media="(min-width: 640px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/images/web/hero-portrait-720.webp" imagesrcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-720.webp 720w, /images/web/hero-portrait-1080.webp 1080w" imagesizes="100vw" media="(max-width: 639px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/images/web/hero-1440.webp" imagesrcset="/images/web/hero-960.webp 960w, /images/web/hero-1440.webp 1440w, /images/web/hero-1920.webp 1920w" imagesizes="100vw" media="(min-width: 640px)" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">
   {
@@ -64,7 +64,10 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="#top">
-        <img class="brand__mark" src="/images/web/logo-mark-64.png" srcset="/images/web/logo-mark-64.png 1x, /images/web/logo-mark-128.png 2x, /images/web/logo-mark-192.png 3x" width="114" height="64" alt="">
+        <picture>
+          <source type="image/webp" srcset="/images/web/logo-mark-64.webp 1x, /images/web/logo-mark-128.webp 2x, /images/web/logo-mark-192.webp 3x">
+          <img class="brand__mark" src="/images/web/logo-mark-64.png" srcset="/images/web/logo-mark-64.png 1x, /images/web/logo-mark-128.png 2x, /images/web/logo-mark-192.png 3x" width="114" height="64" alt="">
+        </picture>
         <span class="brand__name">جمعية نحن نستطيع</span>
       </a>
       <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="فتح القائمة" data-label-open="فتح القائمة" data-label-close="إغلاق القائمة">
@@ -99,7 +102,9 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="top-title">
       <picture class="hero__media">
+        <source type="image/webp" media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-720.webp 720w, /images/web/hero-portrait-1080.webp 1080w" sizes="100vw" width="480" height="600">
         <source media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-720.jpg 720w, /images/web/hero-portrait-1080.jpg 1080w" sizes="100vw" width="480" height="600">
+        <source type="image/webp" srcset="/images/web/hero-960.webp 960w, /images/web/hero-1440.webp 1440w, /images/web/hero-1920.webp 1920w" sizes="100vw">
         <img src="/images/web/hero-1440.jpg" srcset="/images/web/hero-960.jpg 960w, /images/web/hero-1440.jpg 1440w, /images/web/hero-1920.jpg 1920w" sizes="100vw" width="1440" height="960" alt="أيادٍ كثيرة لأشخاص مختلفين متراصّة معًا" fetchpriority="high">
       </picture>
       <div class="container hero__content">
@@ -127,13 +132,19 @@
           </p>
         </div>
         <figure class="split__media split__media--portrait">
-          <img src="/images/web/women-800.jpg" srcset="/images/web/women-480.jpg 480w, /images/web/women-800.jpg 800w, /images/web/women-1080.jpg 1080w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="1200" alt="نساء يعملن معًا حول طاولة طويلة مغطاة بالأغصان الخضراء" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="/images/web/women-480.webp 480w, /images/web/women-800.webp 800w, /images/web/women-1080.webp 1080w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)">
+            <img src="/images/web/women-800.jpg" srcset="/images/web/women-480.jpg 480w, /images/web/women-800.jpg 800w, /images/web/women-1080.jpg 1080w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="1200" alt="نساء يعملن معًا حول طاولة طويلة مغطاة بالأغصان الخضراء" loading="lazy" decoding="async">
+          </picture>
         </figure>
       </div>
     </section>
 
     <section class="vision" id="vision" aria-labelledby="vision-title">
-      <img class="vision__media" src="/images/web/community-1280.jpg" srcset="/images/web/community-640.jpg 640w, /images/web/community-1280.jpg 1280w, /images/web/community-1440.jpg 1440w" sizes="100vw" width="1280" height="720" alt="المدرج الروماني في عمّان وخلفه أحياء المدينة على التلال" loading="lazy" decoding="async">
+      <picture>
+        <source type="image/webp" srcset="/images/web/community-640.webp 640w, /images/web/community-1280.webp 1280w, /images/web/community-1440.webp 1440w" sizes="100vw">
+        <img class="vision__media" src="/images/web/community-1280.jpg" srcset="/images/web/community-640.jpg 640w, /images/web/community-1280.jpg 1280w, /images/web/community-1440.jpg 1440w" sizes="100vw" width="1280" height="720" alt="المدرج الروماني في عمّان وخلفه أحياء المدينة على التلال" loading="lazy" decoding="async">
+      </picture>
       <div class="container vision__content">
         <h2 class="visually-hidden" id="vision-title">رؤيتنا</h2>
         <p class="eyebrow vision__eyebrow" aria-hidden="true">رؤيتنا</p>
@@ -154,7 +165,10 @@
           <p>نلتزم بتهيئة بيئة تتيح لكل شاب وشابة ولكل امرأة الفرص والموارد اللازمة لتحقيق أحلامهم وإحداث تغيير إيجابي.</p>
         </div>
         <figure class="split__media">
-          <img src="/images/web/youth-800.jpg" srcset="/images/web/youth-480.jpg 480w, /images/web/youth-800.jpg 800w, /images/web/youth-1200.jpg 1200w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="450" alt="شباب وشابات في قاعة دراسية يستمعون إلى مدرّس" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="/images/web/youth-480.webp 480w, /images/web/youth-800.webp 800w, /images/web/youth-1200.webp 1200w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)">
+            <img src="/images/web/youth-800.jpg" srcset="/images/web/youth-480.jpg 480w, /images/web/youth-800.jpg 800w, /images/web/youth-1200.jpg 1200w" sizes="(min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 40px)" width="800" height="450" alt="شباب وشابات في قاعة دراسية يستمعون إلى مدرّس" loading="lazy" decoding="async">
+          </picture>
         </figure>
       </div>
     </section>
@@ -278,7 +292,10 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <div class="site-footer__brand">
-        <img class="site-footer__logo" src="/images/web/logo-full-240.png" srcset="/images/web/logo-full-240.png 240w, /images/web/logo-full-480.png 480w" sizes="112px" width="240" height="240" alt="شعار جمعية نحن نستطيع" loading="lazy" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/images/web/logo-full-240.webp 240w, /images/web/logo-full-480.webp 480w" sizes="112px">
+          <img class="site-footer__logo" src="/images/web/logo-full-240.png" srcset="/images/web/logo-full-240.png 240w, /images/web/logo-full-480.png 480w" sizes="112px" width="240" height="240" alt="شعار جمعية نحن نستطيع" loading="lazy" decoding="async">
+        </picture>
         <p class="site-footer__summary">تمكين المرأة والشباب في جميع أنحاء الأردن.</p>
       </div>
       <nav class="site-footer__nav" aria-label="روابط التذييل">

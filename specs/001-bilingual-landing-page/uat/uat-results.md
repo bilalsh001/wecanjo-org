@@ -124,6 +124,13 @@ Two issues found earlier, in the release checks, were fixed before UAT started:
 | D-02 | T043 / T039 visual check | both, all widths | Minor | Vision label centred / it sat off-centre because paragraphs are capped at 70 characters | Fixed in `c86698a` |
 | D-03 | `/speckit-converge` after UAT | both, all widths | Major | Every link and button at least 44 × 44 px (Constitution III) / the language switch was 38 px tall, and on `/ar/` the links "رؤيتنا" and "رسالتنا" were 32–43 px wide | Fixed in T071; re-measured at 390 and 1280 px (menu open and closed), axe 0 violations, UAT page checks pass |
 
+## Changes after UAT
+
+| Change | Why | Regression check |
+|--------|-----|------------------|
+| T071: every link and button at least 44 × 44 px | Constitution III (found by `/speckit-converge`, D-03) | Targets re-measured at 390 and 1280 px, menu open and closed; axe 0 violations; `checkPage()` passes in both languages |
+| T072: every photo and logo served as WebP with the JPEG/PNG copy as fallback; hero preloads switched to WebP | Constitution V (modern-format copies), chosen by the organization | Both pages show only WebP and download no JPEG/PNG; layout, header mark and footer logo unchanged (CLS 0, vision photo still fills its band); `checkPage()` and `interact()` pass; axe 0 violations; `check-site` passes, including a new rule that every photo and logo has a matching WebP source |
+
 ## Covered elsewhere
 
 | Item | Where | Status |

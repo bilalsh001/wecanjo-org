@@ -31,7 +31,7 @@ structure, not timing on a slow connection.
 | Measure | English `/` | Arabic `/ar/` |
 |---------|-------------|---------------|
 | Requests on first load | 9 | 11 |
-| Data on first load (uncompressed, local server) | 434 KB | 607 KB |
+| Data for the first screen on a phone (uncompressed) | 325 KB (434 KB before WebP) | 497 KB (606 KB before WebP) |
 | Hosts contacted | the site only | the site only |
 | Render-blocking files | `styles.css` | `styles.css` |
 | Layout shift (CLS) | 0 | 0 |
@@ -39,6 +39,7 @@ structure, not timing on a slow connection.
 | Search checks (`check-site --group seo`) | pass | pass |
 | Size budgets (`check-site --group budgets`) | pass | pass |
 
-What supports a good score: the hero photo is preloaded per screen size and every other photo is
-lazy-loaded with width and height; fonts are self-hosted with `font-display: swap` and the heading
-font preloaded; there is one stylesheet and one deferred script, and nothing from other sites.
+What supports a good score: every photo and logo is served as WebP (JPEG/PNG fallback); the hero
+photo is preloaded per screen size and every other photo is lazy-loaded with width and height;
+fonts are self-hosted with `font-display: swap` and the heading font preloaded; there is one
+stylesheet and one deferred script, and nothing from other sites.

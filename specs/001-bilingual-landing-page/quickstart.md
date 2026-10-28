@@ -16,9 +16,14 @@ this guide only says what to run and what to expect.
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-web-images.ps1
 ```
 
+```bash
+node tools/make-webp.mjs
+```
+
 Expected: the files listed in [contracts/assets.md](contracts/assets.md) exist under `images/web/`,
-`images/icons/` and the site root; each JPEG is at most 300 KB; `git status` shows no change to the
-originals in `images/`.
+`images/icons/` and the site root; each JPEG is at most 300 KB; every photo and logo file has a
+smaller `.webp` copy (the second command uses Microsoft Edge or Chrome in the background, no
+installs); `git status` shows no change to the originals in `images/`.
 
 ## 2. Preview locally
 

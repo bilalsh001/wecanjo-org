@@ -108,6 +108,25 @@ function checkCore() {
     for (const src of assets) {
       if (src.startsWith('/') && !src.startsWith('//') && !existsSync(join(root, fileForPath(src)))) fail('core', `${p.file}: asset ${src} is missing`);
     }
+    // Constitution V: every photo and logo is offered as WebP first, with the JPEG/PNG copy as fallback.
+    const asWebp = (srcset) => (srcset || '').replace(/\.(jpg|png)(?=\s|$|,)/g, '.webp');
+    for (const img of tags(p.html, 'img')) {
+      if (!img.a.src?.startsWith('/images/web/')) continue;
+      const open = p.html.lastIndexOf('<picture', img.index);
+      if (open < 0 || p.html.lastIndexOf('</picture>', img.index) > open) {
+        fail('core', `${p.file}: ${img.a.src} is not in a <picture> with a WebP source`);
+        continue;
+      }
+      const sources = tags(p.html.slice(open, img.index), 'source');
+      const webp = sources.filter((s) => s.a.type === 'image/webp');
+      for (const fallback of [...sources.filter((s) => s.a.type !== 'image/webp'), img]) {
+        const match = webp.find((s) => (s.a.media || '') === (fallback.a.media || '') && s.a.srcset === asWebp(fallback.a.srcset));
+        if (!match) fail('core', `${p.file}: ${fallback.a.srcset?.split(' ')[0]} has no matching WebP source`);
+      }
+    }
+    for (const link of tags(p.html, 'link').filter((t) => t.a.rel === 'preload' && t.a.as === 'image')) {
+      if (link.a.type !== 'image/webp') fail('core', `${p.file}: the image preload ${link.a.href} should be the WebP copy`);
+    }
   }
   if (!(read('CNAME') || '').includes('www.wecan-jo.org')) fail('core', 'CNAME must contain www.wecan-jo.org');
 }
