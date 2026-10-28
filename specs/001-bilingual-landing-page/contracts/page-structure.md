@@ -50,9 +50,10 @@ differ.
   between "Open menu" and "Close menu" (Arabic: "فتح القائمة" / "إغلاق القائمة").
 - When open, `#site-menu` has `role="dialog"`, `aria-modal="true"` and the label "Menu" / "القائمة".
   It slides in from the inline-end edge (right in English, left in Arabic) over a dimmed backdrop
-  and is about 85% of the screen width.
+  and is about 85% of the screen width (at most 384 px, as in the approved design).
 - Focus moves to the close button when it opens, Tab and Shift+Tab stay inside the panel, and
-  focus returns to the menu button when it closes.
+  focus returns to the menu button when it closes. The one exception is choosing a section link:
+  focus then moves to that section, so the next Tab continues from there (WAI-ARIA dialog pattern).
 - It closes on Escape, the close button, a backdrop tap or choosing a link (which then moves to the
   section). The page behind does not scroll while it is open.
 - If the screen becomes 1024 px or wider while it is open (resize or rotation), it closes and the

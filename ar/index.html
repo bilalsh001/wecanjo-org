@@ -19,7 +19,13 @@
         <img class="brand__mark" src="/images/web/logo-mark-64.png" srcset="/images/web/logo-mark-64.png 1x, /images/web/logo-mark-128.png 2x, /images/web/logo-mark-192.png 3x" width="114" height="64" alt="">
         <span class="brand__name">جمعية نحن نستطيع</span>
       </a>
-      <div class="site-menu" id="site-menu">
+      <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="فتح القائمة" data-label-open="فتح القائمة" data-label-close="إغلاق القائمة">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="site-menu" id="site-menu" data-dialog-label="القائمة">
+        <button class="menu-close" type="button" aria-label="إغلاق القائمة">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
         <nav class="site-nav" aria-label="القائمة الرئيسية">
           <ul class="site-nav__list">
             <li><a class="site-nav__link" href="#about">عن الجمعية</a></li>
@@ -33,7 +39,12 @@
           <span class="lang-current" aria-hidden="true">عربي</span>
           <a class="lang-switch" href="/" lang="en" hreflang="en" aria-label="English">EN</a>
         </div>
+        <a class="menu-email" href="mailto:info@wecan-jo.org" dir="ltr">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+          info@wecan-jo.org
+        </a>
       </div>
+      <div class="menu-backdrop"></div>
     </div>
   </header>
 

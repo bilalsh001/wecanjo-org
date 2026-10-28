@@ -289,12 +289,14 @@ body:lang(ar) {
 :root {
   --gutter: 20px;
   --section-space: 64px;
+  --header-height: 65px; /* sticky header: mark + padding + hairline */
 }
 
 @media (min-width: 640px) {
   :root {
     --gutter: 32px;
     --section-space: 88px;
+    --header-height: 73px;
   }
 }
 
@@ -302,6 +304,7 @@ body:lang(ar) {
   :root {
     --gutter: 48px;
     --section-space: 112px;
+    --header-height: 89px;
   }
 }
 
@@ -313,6 +316,17 @@ body:lang(ar) {
 
 .section {
   padding-block: var(--section-space);
+}
+
+/* A linked section starts just below the sticky header, so its heading stays in view. */
+main section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .visually-hidden {
@@ -368,6 +382,7 @@ body:lang(ar) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 }
@@ -395,10 +410,11 @@ body:lang(ar) {
   }
 }
 
-/* Below 1024 px the wrapped links would make a sticky header too tall (FR-024), so it scrolls
-   away; the menu button (script.js) makes it compact and sticky again. */
+/* Below 1024 px without scripts the links wrap under the logo, which would make a sticky header
+   too tall (FR-024), so it scrolls away. With scripts the links move into the menu panel and the
+   compact header stays sticky. */
 @media (max-width: 1023px) {
-  .site-header {
+  .no-js .site-header {
     position: relative;
   }
 }
@@ -457,6 +473,15 @@ body:lang(ar) {
   text-decoration-thickness: 2px;
 }
 
+/* The section in view (script.js). */
+.site-nav__link[aria-current="true"] {
+  color: var(--leaf-green-text);
+  text-decoration: underline;
+  text-decoration-color: var(--leaf-green);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
 .lang-switch-group {
   display: inline-flex;
   align-items: center;
@@ -492,6 +517,14 @@ body:lang(ar) {
 
 .lang-switch:hover {
   background: var(--sand-mist);
+}
+
+/* The menu controls only exist in the narrow layout with scripts on (see "Menu panel" below). */
+.menu-toggle,
+.menu-close,
+.menu-email,
+.menu-backdrop {
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -531,6 +564,126 @@ body:lang(ar) {
   .brand__mark {
     block-size: 64px;
   }
+}
+
+/* ---------- Menu panel (below 1024 px, scripts on) ---------- */
+
+@media (max-width: 1023px) {
+  .js .menu-toggle,
+  .js .menu-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: none;
+    color: var(--deep-grove);
+    cursor: pointer;
+  }
+
+  .js .menu-toggle:hover,
+  .js .menu-close:hover {
+    background: var(--sand-mist);
+  }
+
+  /* Slides in from the inline-end edge: the right in English, the left in Arabic. */
+  .js .site-menu {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 2;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0;
+    inline-size: min(85%, 24rem);
+    padding: 12px 24px 32px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--pure-white);
+    box-shadow: 0 0 48px rgb(47 74 53 / 0.25);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 250ms ease, visibility 0s linear 250ms;
+  }
+
+  .js[dir="rtl"] .site-menu {
+    transform: translateX(-100%);
+  }
+
+  .js .site-menu.is-open {
+    transform: none;
+    visibility: visible;
+    transition: transform 250ms ease;
+  }
+
+  .js .menu-close {
+    align-self: flex-end;
+    margin-block-end: 8px;
+  }
+
+  .js .site-nav {
+    align-self: stretch;
+  }
+
+  .js .site-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .js .site-nav__link {
+    display: flex;
+    min-block-size: 64px;
+    padding-block: 10px;
+    border-block-end: 1px solid rgb(160 173 135 / 0.45);
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .js .lang-switch-group {
+    margin-block-start: 28px;
+  }
+
+  .js .menu-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    min-block-size: 44px;
+    margin-block-start: 28px;
+    padding-block-start: 20px;
+    border-block-start: 1px solid rgb(160 173 135 / 0.45);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .js .menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgb(47 74 53 / 0.65);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 250ms ease, visibility 0s linear 250ms;
+  }
+
+  .js .menu-backdrop.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 250ms ease;
+  }
+}
+
+/* The page behind the open menu does not scroll. */
+.menu-open {
+  overflow: hidden;
+  scrollbar-gutter: stable;
 }
 
 /* ---------- Buttons ---------- */

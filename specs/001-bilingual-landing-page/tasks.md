@@ -174,17 +174,17 @@ link; at 1280 px the current section is marked; without scripts the links are st
 
 ### Implementation for User Story 5
 
-- [ ] T044 [US5] Add the menu button (`aria-controls="site-menu"`, `aria-expanded="false"`, label "Open menu" / "فتح القائمة"), the close button inside `#site-menu`, the backdrop element and the panel email link to both `index.html` and `ar/index.html`, hidden when the `html` element has `no-js`
-- [ ] T045 [US5] Style the menu panel in `styles.css`: below 1024 px with `js`, `#site-menu` becomes a full-height panel about 85% wide sliding in from the inline-end edge over a dimmed Deep Grove backdrop, with large EB Garamond / Amiri links separated by Sage hairlines, the language switch and the email; slide about 250 ms, none under reduced motion
-- [ ] T046 [US5] Implement the menu in `script.js`: open/close toggling `aria-expanded`, the button label and `role="dialog"` + `aria-modal="true"` + accessible name "Menu" / "القائمة" on `#site-menu`; focus to the close button on open, focus containment on Tab/Shift+Tab, Escape, backdrop tap and link selection close it, focus returns to the menu button, page scroll locked while open, and the menu closes when the width reaches 1024 px
-- [ ] T047 [US5] Implement current-section marking in `script.js`: IntersectionObserver marks the section covering the middle of the screen below the header with `aria-current="true"` on its nav link (none while the hero is in view), add the `is-scrolled` class to the header once the page scrolls (for the hairline), and style the marked link with the Leaf Green underline in `styles.css`
-- [ ] T048 [US5] Implement the language-switch section hash in `script.js`: whenever the current section changes, set the language link to the other page plus `#<section>`, or to the page top when no section is current
-- [ ] T049 [US5] Add smooth scrolling only under `prefers-reduced-motion: no-preference` and `scroll-margin-top` equal to the header height for every section in `styles.css`
+- [X] T044 [US5] Add the menu button (`aria-controls="site-menu"`, `aria-expanded="false"`, label "Open menu" / "فتح القائمة"), the close button inside `#site-menu`, the backdrop element and the panel email link to both `index.html` and `ar/index.html`, hidden when the `html` element has `no-js`
+- [X] T045 [US5] Style the menu panel in `styles.css`: below 1024 px with `js`, `#site-menu` becomes a full-height panel about 85% wide sliding in from the inline-end edge over a dimmed Deep Grove backdrop, with large EB Garamond / Amiri links separated by Sage hairlines, the language switch and the email; slide about 250 ms, none under reduced motion
+- [X] T046 [US5] Implement the menu in `script.js`: open/close toggling `aria-expanded`, the button label and `role="dialog"` + `aria-modal="true"` + accessible name "Menu" / "القائمة" on `#site-menu`; focus to the close button on open, focus containment on Tab/Shift+Tab, Escape, backdrop tap and link selection close it, focus returns to the menu button, page scroll locked while open, and the menu closes when the width reaches 1024 px
+- [X] T047 [US5] Implement current-section marking in `script.js`: IntersectionObserver marks the section covering the middle of the screen below the header with `aria-current="true"` on its nav link (none while the hero is in view), add the `is-scrolled` class to the header once the page scrolls (for the hairline), and style the marked link with the Leaf Green underline in `styles.css`
+- [X] T048 [US5] Implement the language-switch section hash in `script.js`: whenever the current section changes, set the language link to the other page plus `#<section>`, or to the page top when no section is current
+- [X] T049 [US5] Add smooth scrolling only under `prefers-reduced-motion: no-preference` and `scroll-margin-top` equal to the header height for every section in `styles.css`
 
 ### Verification for User Story 5
 
-- [ ] T050 [US5] Keyboard walk-through at 390 and 768 px in both languages: open the menu, Tab and Shift+Tab stay inside, Escape, outside tap and a link each close it with focus returned; at 1280 px the marked section follows scrolling; resizing past 1024 px with the menu open closes it
-- [ ] T051 [US5] Remove the `js` class in the in-app browser (no-scripts state) and confirm the links and language switch are reachable on narrow screens; run `node tools/check-site.mjs --group nav` and fix every failure
+- [X] T050 [US5] Keyboard walk-through at 390 and 768 px in both languages: open the menu, Tab and Shift+Tab stay inside, Escape, outside tap and a link each close it with focus returned; at 1280 px the marked section follows scrolling; resizing past 1024 px with the menu open closes it
+- [X] T051 [US5] Remove the `js` class in the in-app browser (no-scripts state) and confirm the links and language switch are reachable on narrow screens; run `node tools/check-site.mjs --group nav` and fix every failure
 
 **Checkpoint**: Navigation complete on every device
 

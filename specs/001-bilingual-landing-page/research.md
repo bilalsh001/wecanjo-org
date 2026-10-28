@@ -61,7 +61,8 @@ CLARIFICATION remains.
   hidden. With scripts, below 1024 px the menu button (`aria-expanded`, `aria-controls`) opens the
   menu panel, which slides in from the inline-end edge and acts as a modal dialog: focus is kept
   inside, Escape closes it, as do a backdrop tap, choosing a link or the close button, focus returns
-  to the button, and the page behind does not scroll. The section in view is marked with
+  to the button (or, after a section link, moves to that section), and the page behind does not
+  scroll. The section in view is marked with
   `aria-current="true"` (IntersectionObserver). Language links get the current section appended
   (for example `/ar/#mission`). Smooth scrolling only applies under
   `prefers-reduced-motion: no-preference`, and `scroll-margin-top` keeps headings clear of the
