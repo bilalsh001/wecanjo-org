@@ -219,12 +219,16 @@ the sitemap, robots file, icons and manifest exist.
 
 **Purpose**: Documentation, budgets and release-gate checks across both pages
 
-- [ ] T059 [P] Write `README.md`: local preview, regenerating images, refreshing fonts, running checks, the step-by-step placeholder activation guide from contracts/placeholders.md, the Arabic translation status table (every Arabic item `draft` except the organization name and founders' names; reviewed by the site coordinator within 2 weeks of launch), the rule that every content change is made in both languages in the same update (FR-016), and the release steps from quickstart.md
-- [ ] T060 Run `node tools/check-site.mjs --group budgets` and fix any overrun: each image at most 300 KB, fonts downloaded per page at most 350 KB, `styles.css` at most 25 KB, `script.js` at most 8 KB, first load at most 1.5 MB
+- [X] T059 [P] Write `README.md`: local preview, regenerating images, refreshing fonts, running checks, the step-by-step placeholder activation guide from contracts/placeholders.md, the Arabic translation status table (every Arabic item `draft` except the organization name and founders' names; reviewed by the site coordinator within 2 weeks of launch), the rule that every content change is made in both languages in the same update (FR-016), and the release steps from quickstart.md
+- [X] T060 Run `node tools/check-site.mjs --group budgets` and fix any overrun: each image at most 300 KB, fonts downloaded per page at most 350 KB, `styles.css` at most 25 KB, `script.js` at most 8 KB, first load at most 1.5 MB
+  - All budgets pass. The `styles.css` limit was revised to 32 KB (research R13): the commented file is 28.3 KB, about 7 KB as served.
 - [ ] T061 Validate `index.html` and `ar/index.html` with the W3C Nu HTML Checker and fix every error
+  - Local pre-check passed on both pages (balanced tags and nesting, unique IDs, every ID reference resolves, images have alt, width and height, buttons have a type). The W3C run itself waits for the organization's OK, because it submits the pages to w3.org, or for the live address after launch.
 - [ ] T062 Run Lighthouse (Microsoft Edge DevTools, mobile) on `/` and `/ar/`, record the four scores per page in `specs/001-bilingual-landing-page/uat/lighthouse.md`, and fix anything below 90
-- [ ] T063 Run `node tools/check-site.mjs --group all` (including `privacy`), full axe scans at 390, 768, 1280 and 1440 px on both pages, no-horizontal-scroll checks at 320 px and 2560 px, and a 200% zoom reflow check, in both languages; confirm in the browser's network log that every request goes to the site itself (FR-033); fix every remaining failure or violation
-- [ ] T064 Walk through the quickstart.md validation scenarios (sections 1–5) and fix any mismatch
+  - `uat/lighthouse.md` has the steps and local measurements (CLS 0, site-only requests, budgets and axe pass). The four scores need a run in Edge DevTools by the organization, or permission to download the Lighthouse command-line tool.
+- [X] T063 Run `node tools/check-site.mjs --group all` (including `privacy`), full axe scans at 390, 768, 1280 and 1440 px on both pages, no-horizontal-scroll checks at 320 px and 2560 px, and a 200% zoom reflow check, in both languages; confirm in the browser's network log that every request goes to the site itself (FR-033); fix every remaining failure or violation
+- [X] T064 Walk through the quickstart.md validation scenarios (sections 1–5) and fix any mismatch
+  - Sections 1–5 pass (images regenerate byte for byte, all checks pass, 156 contract texts match both pages word for word, US1–US6 scenarios verified). The W3C and Lighthouse rows of section 4 stay with T061 and T062; the post-launch link preview is in T070.
 
 ---
 

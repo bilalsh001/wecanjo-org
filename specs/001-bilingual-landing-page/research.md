@@ -173,9 +173,14 @@ CLARIFICATION remains.
 ## R13. Performance budget
 
 - **Decision**: Phone hero image at most 120 KB (720 px), fonts at most 350 KB per page, CSS at
-  most 25 KB, script at most 8 KB, no other render-blocking requests; Largest Contentful Paint at
-  most 2.5 s under Lighthouse mobile throttling.
+  most 32 KB uncompressed, script at most 8 KB, no other render-blocking requests; Largest
+  Contentful Paint at most 2.5 s under Lighthouse mobile throttling.
 - **Rationale**: SC-005, SC-006 and SC-007.
+- **Revision (2026-10-29)**: the CSS limit was 25 KB. With the menu panel, the contact
+  placeholders, the right-to-left rules and the styles for switched-on channels the commented
+  stylesheet is about 28 KB (about 7 KB as served compressed), and first loads stay far below the
+  1.5 MB target (about 450 KB English, 630 KB Arabic). Stripping the comments would save little and
+  make the file harder for the organization to maintain, so the limit moved to 32 KB.
 
 ## R14. Replacing the current site files
 

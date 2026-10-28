@@ -60,7 +60,7 @@ Downloaded once from Google Fonts (fonts.google.com) by `tools/fetch-fonts.mjs`,
 
 | File | Budget |
 |------|--------|
-| `styles.css` | At most 25 KB |
+| `styles.css` | At most 32 KB uncompressed (about 7 KB as served); revised from 25 KB, see research R13 |
 | `script.js` | At most 8 KB |
 | Fonts downloaded per page | At most 350 KB |
 

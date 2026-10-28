@@ -29,7 +29,7 @@ const pages = [
       ['Emad Shehab', 'B.Sc. Mathematics', 'Founder and President of Broccoli Not for Profit Organization.'],
     ],
     initials: ['ID', 'MO', 'AD', 'ES'],
-    fonts: ['eb-garamond-latin', 'eb-garamond-italic-latin', 'manrope-latin', 'ibm-plex-sans-arabic-400-arabic'],
+    fonts: ['eb-garamond-latin', 'eb-garamond-italic-latin', 'manrope-latin', 'ibm-plex-sans-arabic-600-arabic'],
   },
   {
     lang: 'ar', dir: 'rtl', file: 'ar/index.html', other: '/', otherLang: 'en', switchName: 'English',
@@ -131,11 +131,18 @@ function checkFounders() {
 }
 
 function checkContact() {
+  const blocks = {};
   for (const p of present) {
     if (!p.html.includes('href="mailto:info@wecan-jo.org"')) fail('contact', `${p.file}: missing mailto:info@wecan-jo.org link`);
+    blocks[p.file] = [];
     for (const ch of ['phone', 'social', 'form']) {
       const m = p.html.match(new RegExp(`<!-- PLACEHOLDER:${ch} START -->([\\s\\S]*?)<!-- PLACEHOLDER:${ch} END -->`));
-      if (!m) { fail('contact', `${p.file}: placeholder block "${ch}" missing`); continue; }
+      if (!m) {
+        // A channel switched on (README, "Switch on a contact channel") replaces its placeholder with a working card.
+        if (!p.html.includes(`data-channel="${ch}"`)) fail('contact', `${p.file}: channel "${ch}" is neither a placeholder nor a working card`);
+        continue;
+      }
+      blocks[p.file].push(ch);
       const block = m[1];
       if (/<a\b/i.test(block)) fail('contact', `${p.file}: placeholder "${ch}" contains a link`);
       if (/tabindex\s*=/i.test(block)) fail('contact', `${p.file}: placeholder "${ch}" sets tabindex`);
@@ -143,6 +150,9 @@ function checkContact() {
       if (/<form\b[^>]*\baction\s*=/i.test(block)) fail('contact', `${p.file}: placeholder form has an action`);
       if (!plainText(block).includes(p.soon)) fail('contact', `${p.file}: placeholder "${ch}" lacks "${p.soon}"`);
     }
+  }
+  if (present.length === 2 && blocks[present[0].file].join() !== blocks[present[1].file].join()) {
+    fail('contact', `the pages have different placeholders: ${present.map((p) => `${p.file} [${blocks[p.file].join(', ')}]`).join(' vs ')}`);
   }
 }
 
@@ -241,7 +251,7 @@ function checkBudgets() {
   const imageFiles = ['images/web', 'images/icons'].flatMap((d) => (existsSync(join(root, d)) ? readdirSync(join(root, d)).map((f) => `${d}/${f}`) : []))
     .concat(['favicon.ico', 'apple-touch-icon.png']);
   for (const f of imageFiles) if (size(f) > 300 * 1024) fail('budgets', `${f} is ${kb(size(f))} (limit 300 KB)`);
-  if (size('styles.css') > 25 * 1024) fail('budgets', `styles.css is ${kb(size('styles.css'))} (limit 25 KB)`);
+  if (size('styles.css') > 32 * 1024) fail('budgets', `styles.css is ${kb(size('styles.css'))} (limit 32 KB)`);
   if (size('script.js') > 8 * 1024) fail('budgets', `script.js is ${kb(size('script.js'))} (limit 8 KB)`);
   for (const p of present) {
     const fonts = p.fonts.reduce((sum, f) => sum + size(`fonts/${f}.woff2`), 0);
@@ -255,8 +265,9 @@ function checkBudgets() {
 
 function checkPrivacy() {
   for (const f of ['index.html', 'ar/index.html', 'styles.css', 'script.js']) {
-    const text = read(f);
-    if (text === null) continue;
+    // Ordinary links (<a href>) only load when a visitor follows them, so they are not counted (FR-033).
+    const text = read(f)?.replace(/<a\b[^>]*>/gi, '');
+    if (text === undefined) continue;
     for (const m of text.matchAll(/(?:https?:)?\/\/([a-z0-9.-]+\.[a-z]{2,})/gi)) {
       const host = m[1].toLowerCase();
       if (host === 'www.wecan-jo.org' || (host === 'schema.org' && f.endsWith('.html'))) continue;

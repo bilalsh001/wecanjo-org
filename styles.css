@@ -569,8 +569,14 @@ main section[id] {
 /* ---------- Menu panel (below 1024 px, scripts on) ---------- */
 
 @media (max-width: 1023px) {
+  /* Logo, name and menu button stay on one row; a long name wraps beside the logo instead. */
+  .js .site-header__inner {
+    flex-wrap: nowrap;
+  }
+
   .js .menu-toggle,
   .js .menu-close {
+    flex: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1208,7 +1214,10 @@ img.founder-card__badge {
   align-content: start;
   gap: 16px;
   padding: 28px;
+  border: 1px solid rgb(160 173 135 / 0.4);
   border-radius: var(--radius-lg);
+  background: var(--pure-white);
+  box-shadow: var(--shadow-card);
 }
 
 .channel > * {
@@ -1239,11 +1248,9 @@ img.founder-card__badge {
   line-height: 1.3;
 }
 
-/* The channel that works today: a white card with a Leaf Green border. */
+/* The email card is the prominent one: a Leaf Green border. */
 .channel--email {
   border: 2px solid var(--leaf-green);
-  background: var(--pure-white);
-  box-shadow: var(--shadow-card);
 }
 
 .channel__value a {
@@ -1273,6 +1280,7 @@ img.founder-card__badge {
 .channel--soon {
   border: 1.5px dashed var(--sage);
   background: rgb(255 255 255 / 0.5);
+  box-shadow: none;
   color: var(--stone);
 }
 
@@ -1317,6 +1325,20 @@ img.founder-card__badge {
   border-radius: 50%;
   background: var(--sage);
   vertical-align: middle;
+}
+
+/* Profile links in a switched-on social media card (README). */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  font-weight: 600;
 }
 
 .channel--form {
