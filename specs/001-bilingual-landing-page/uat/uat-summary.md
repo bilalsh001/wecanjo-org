@@ -28,11 +28,11 @@ accessibility scans with no violations.
 | Item | Who | When |
 |------|-----|------|
 | Review the Arabic text (everything except the name and the founders' names is a draft) and send corrections | Site coordinator | Within 2 weeks of launch |
-| Decide whether the pages may be submitted to the W3C HTML checker (T061) | Organization | Before launch (or check the live address after launch) |
 | Run Lighthouse in Microsoft Edge on both pages and fill in `uat/lighthouse.md` (T062), or let the project team download the Lighthouse tool | Organization | Before launch |
 | Hallway test, device spot check and post-launch checks below | Organization | Before and right after launch |
 
-No minor defects are open from UAT.
+No minor defects are open from UAT. The W3C HTML checker reported no errors or warnings for either
+page (T061, checked on 2026-10-29 with the organization's OK).
 
 ## Hallway test (SC-001)
 

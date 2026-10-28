@@ -138,5 +138,5 @@ Two issues found earlier, in the release checks, were fixed before UAT started:
 | SC-001 hallway test (5 first-time visitors) | uat-summary.md, for the organization | To do by the organization |
 | Email app opens on real devices (SC-009) | uat-summary.md device spot check | To do by the organization |
 | Lighthouse scores (SC-005, SC-006) | T062, uat/lighthouse.md | Waiting for a run in Edge |
-| W3C HTML check | T061 | Waiting for the organization's OK |
+| W3C HTML check | T061 | Passed on 2026-10-29: 0 errors, 0 warnings on both pages (Nu checker 26.10.18) |
 | Link previews in a checker, WhatsApp and Facebook (SC-008) | uat-summary.md post-launch checks | After launch |
