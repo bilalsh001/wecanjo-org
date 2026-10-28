@@ -1,5 +1,5 @@
 // Automated checks for the bilingual site (Node built-ins only).
-// Usage: node tools/check-site.mjs [--group core|founders|contact|i18n|nav|seo|budgets|privacy|all]
+// Usage: node tools/check-site.mjs [--group core|founders|contact|i18n|nav|seo|budgets|privacy|all] [--page index.html|ar/index.html]
 // Expected values come from specs/001-bilingual-landing-page/contracts/.
 import { existsSync, readFileSync, statSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -72,8 +72,10 @@ const fileForPath = (p) => {
   return clean.slice(1);
 };
 
+const pageArg = process.argv.indexOf('--page');
+const onlyPage = pageArg > 0 ? process.argv[pageArg + 1] : null;
 for (const page of pages) page.html = read(page.file);
-const present = pages.filter((p) => p.html !== null);
+const present = pages.filter((p) => p.html !== null && (!onlyPage || p.file === onlyPage));
 for (const page of pages) if (page.html === null) fail('core', `${page.file} is missing`);
 
 function checkCore() {

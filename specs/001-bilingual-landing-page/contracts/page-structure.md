@@ -26,7 +26,7 @@ differ.
       section#vision         background image (img with alt), eyebrow, h2 (visually hidden), quote
       section#mission        image, eyebrow, h2, paragraph, emphasized sentence, paragraph
       section#founders       eyebrow, h2, ul of 4 founder cards (badge, h3 name, credential, role)
-      section#contact        eyebrow, h2, email card, ul of placeholder cards, form placeholder
+      section#contact        eyebrow, h2, ul of channel cards (email, then phone and social placeholders), form placeholder
     footer.site-footer       complete logo, summary, nav[aria-label=Footer], registration, ©
     script /script.js defer
 ```

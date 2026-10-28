@@ -104,13 +104,13 @@ exactly.
 
 ### Implementation for User Story 2
 
-- [ ] T026 [US2] Add Founders to `index.html`: eyebrow "Our founders", `h2` "The people behind We Can", and a list of four cards in the fixed order Insaf Daas, Dr. Maysoon Otoom, Dr. Abeer Dababneh, Emad Shehab, each with an `aria-hidden` initials badge (ID, MO, AD, ES), an `h3` name, the credential and the role, word for word from contracts/content.md (FR-006, FR-007)
-- [ ] T027 [US2] Style the founder cards in `styles.css`: 1 / 2 / 2 / 4 per row at the four width bands, white card with 16 px radius and the card shadow, 88 px circular Light Cream badge with Deep Grove EB Garamond initials, credential in small uppercase Leaf Green (not uppercased in Arabic), and a badge slot that an equally sized headshot can replace without layout change
+- [X] T026 [US2] Add Founders to `index.html`: eyebrow "Our founders", `h2` "The people behind We Can", and a list of four cards in the fixed order Insaf Daas, Dr. Maysoon Otoom, Dr. Abeer Dababneh, Emad Shehab, each with an `aria-hidden` initials badge (ID, MO, AD, ES), an `h3` name, the credential and the role, word for word from contracts/content.md (FR-006, FR-007)
+- [X] T027 [US2] Style the founder cards in `styles.css`: 1 / 2 / 2 / 4 per row at the four width bands, white card with 16 px radius and the card shadow, 88 px circular Light Cream badge with Deep Grove EB Garamond initials, credential in small uppercase Leaf Green (not uppercased in Arabic), and a badge slot that an equally sized headshot can replace without layout change
 
 ### Verification for User Story 2
 
-- [ ] T028 [US2] Run `node tools/check-site.mjs --group founders` (four cards, exact names, credentials and roles, fixed order) and fix every failure
-- [ ] T029 [US2] Run axe on the Founders section and check the card grid at 390, 768, 1280 and 1440 px; fix any issue in `index.html` / `styles.css`
+- [X] T028 [US2] Run `node tools/check-site.mjs --group founders` (four cards, exact names, credentials and roles, fixed order) and fix every failure
+- [X] T029 [US2] Run axe on the Founders section and check the card grid at 390, 768, 1280 and 1440 px; fix any issue in `index.html` / `styles.css`
 
 **Checkpoint**: User Stories 1 and 2 both work
 
@@ -125,14 +125,14 @@ exactly.
 
 ### Implementation for User Story 3
 
-- [ ] T030 [US3] Add Contact to `index.html`: eyebrow "Contact", `h2` "Get in touch", the email card ("Email us", `<a href="mailto:info@wecan-jo.org">`, "Amman, Jordan") and inline SVG icons with `aria-hidden="true" focusable="false"`
-- [ ] T031 [US3] Add the three placeholder cards to `index.html` exactly as in contracts/placeholders.md: Phone & WhatsApp, Social media (Facebook, Instagram, LinkedIn, X) and the Contact form (`<form>` without `action` wrapping `<fieldset disabled>` with Name, Email, Message and "Send message"), each wrapped in `<!-- PLACEHOLDER:<channel> START/END -->` comments with the "Coming soon" badge and visually hidden ", not available yet"; "a `coming-soon` card never contains a link or a focusable control" (data-model ContactChannel)
-- [ ] T032 [US3] Style Contact in `styles.css`: Leaf Green bordered email card, muted placeholder cards (dashed 1.5 px Sage border, Stone text kept at 4.5:1 contrast, icons at 60% opacity), layout stacked below 640 px, email full width plus two placeholders side by side up to 1023 px, three in one row with the form below from 1024 px
+- [X] T030 [US3] Add Contact to `index.html`: eyebrow "Contact", `h2` "Get in touch", the email card ("Email us", `<a href="mailto:info@wecan-jo.org">`, "Amman, Jordan") and inline SVG icons with `aria-hidden="true" focusable="false"`
+- [X] T031 [US3] Add the three placeholder cards to `index.html` exactly as in contracts/placeholders.md: Phone & WhatsApp, Social media (Facebook, Instagram, LinkedIn, X) and the Contact form (`<form>` without `action` wrapping `<fieldset disabled>` with Name, Email, Message and "Send message"), each wrapped in `<!-- PLACEHOLDER:<channel> START/END -->` comments with the "Coming soon" badge and visually hidden ", not available yet"; "a `coming-soon` card never contains a link or a focusable control" (data-model ContactChannel)
+- [X] T032 [US3] Style Contact in `styles.css`: Leaf Green bordered email card, muted placeholder cards (dashed 1.5 px Sage border, Stone text kept at 4.5:1 contrast, icons at 60% opacity), layout stacked below 640 px, email full width plus two placeholders side by side up to 1023 px, three in one row with the form below from 1024 px
 
 ### Verification for User Story 3
 
-- [ ] T033 [US3] Run `node tools/check-site.mjs --group contact` (mailto target, placeholder blocks present, no links, tabindex or enabled controls inside them) and fix every failure
-- [ ] T034 [US3] Tab through the Contact section in the in-app browser to confirm the placeholders receive no focus, run axe on the section, and check the layout at the four widths
+- [X] T033 [US3] Run `node tools/check-site.mjs --group contact` (mailto target, placeholder blocks present, no links, tabindex or enabled controls inside them) and fix every failure
+- [X] T034 [US3] Tab through the Contact section in the in-app browser to confirm the placeholders receive no focus, run axe on the section, and check the layout at the four widths
 
 **Checkpoint**: User Stories 1–3 work in English
 

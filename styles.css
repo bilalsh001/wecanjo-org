@@ -670,6 +670,11 @@ p {
   text-align: center;
 }
 
+/* Paragraphs are capped at 70ch, so centre the box as well as its text. */
+.section-head > p {
+  margin-inline: auto;
+}
+
 .section-head .section-title::after {
   margin-inline: auto;
 }
@@ -920,5 +925,300 @@ p {
     inline-size: 100%;
     padding-block-start: 24px;
     border-block-start: 1px solid rgba(241, 228, 195, 0.25);
+  }
+}
+
+/* ---------- Founders ---------- */
+
+.founders {
+  background: var(--sand-mist);
+}
+
+.founders__list {
+  display: grid;
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.founder-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--pure-white);
+  box-shadow: var(--shadow-card);
+}
+
+/* Initials stand in for headshots; an <img class="founder-card__badge"> of the same size can replace them. */
+.founder-card__badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 88px;
+  block-size: 88px;
+  border-radius: 50%;
+  background: var(--light-cream);
+  color: var(--deep-grove);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+img.founder-card__badge {
+  object-fit: cover;
+}
+
+.founder-card__body {
+  min-inline-size: 0;
+}
+
+.founder-card__name {
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.founder-card__credential {
+  margin-block-start: 4px;
+  color: var(--leaf-green-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.founder-card__role {
+  margin-block-start: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .founders__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .founders__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .founder-card {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Contact ---------- */
+
+.contact__channels {
+  display: grid;
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+/* Icon and "Coming soon" badge share the first row; everything else spans the card. */
+.channel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  gap: 16px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+}
+
+.channel > * {
+  grid-column: 1 / -1;
+}
+
+.channel > .channel__icon {
+  grid-column: 1;
+}
+
+.channel > .channel__status {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: start;
+}
+
+.channel__icon {
+  inline-size: 56px;
+  block-size: 56px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--light-cream);
+  color: var(--leaf-green-text);
+}
+
+.channel__title {
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+/* The channel that works today: a white card with a Leaf Green border. */
+.channel--email {
+  border: 2px solid var(--leaf-green);
+  background: var(--pure-white);
+  box-shadow: var(--shadow-card);
+}
+
+.channel__value a {
+  font-size: 1.125rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.channel__location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-block-start: 16px;
+  border-block-start: 1px solid rgb(160 173 135 / 0.4);
+  color: var(--stone);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.channel__location-icon {
+  flex: none;
+  color: var(--leaf-green-text);
+}
+
+/* "Coming soon" channels (DESIGN.md placeholder state): Stone text (5:1 on this background),
+   dashed Sage border, faded icon, nothing clickable. */
+.channel--soon {
+  border: 1.5px dashed var(--sage);
+  background: rgb(255 255 255 / 0.5);
+  color: var(--stone);
+}
+
+.channel--soon .channel__title {
+  color: var(--stone);
+}
+
+.channel--soon .channel__icon {
+  background: var(--sand-mist);
+  color: var(--stone);
+  opacity: 0.6;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border: 1px solid var(--sage);
+  border-radius: 999px;
+  background: var(--pure-white);
+  color: var(--stone);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+/* Every name gets its own dot, so the list still reads cleanly when it wraps. */
+.channel__networks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.channel__networks li::before {
+  content: '';
+  display: inline-block;
+  inline-size: 5px;
+  block-size: 5px;
+  margin-inline-end: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+  vertical-align: middle;
+}
+
+.channel--form {
+  margin-block-start: 24px;
+}
+
+.contact-form__fields {
+  display: grid;
+  gap: 16px;
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.contact-form__field {
+  display: grid;
+  gap: 6px;
+  max-inline-size: none;
+}
+
+.contact-form__field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  inline-size: 100%;
+  min-block-size: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-sm);
+  background: var(--pure-white);
+  resize: none;
+}
+
+.contact-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  max-inline-size: none;
+}
+
+.contact-form__submit {
+  min-block-size: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-sm);
+  background: var(--pure-white);
+  color: var(--stone);
+  font-weight: 700;
+}
+
+.contact-form :disabled {
+  cursor: not-allowed;
+}
+
+/* Tablet: email card full width, the two placeholders side by side, form below. */
+@media (min-width: 640px) {
+  .contact__channels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .channel--email {
+    grid-column: 1 / -1;
+  }
+
+  .contact-form__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-form__field--wide,
+  .contact-form__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Desktop: email and the two placeholders in one row, form below. */
+@media (min-width: 1024px) {
+  .contact__channels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .channel--email {
+    grid-column: auto;
   }
 }
