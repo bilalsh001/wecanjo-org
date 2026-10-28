@@ -16,6 +16,7 @@
 - Q: Should the Arabic version go live only after someone at the organization has checked and approved the Arabic text, or launch together with English using the draft? → A: Launch both languages together with the draft Arabic; the organization corrects it afterwards.
 - Q: Are these Arabic spellings of the founders' names correct: إنصاف دعاس، د. ميسون العتوم، د. عبير دبابنة، عماد شهاب? → A: Yes, all four are correct as written.
 - Q: Should the site use the proposed wording for the hero sentence and section headings, or only words taken directly from the organization's own text? → A: Use the proposed wording; it is approved.
+- Q: When a contact channel such as a phone number becomes available, is it OK to switch it on by editing both the English and Arabic pages with the help of a short step-by-step guide, rather than in a single settings file? → A: Yes; edit both pages using a step-by-step guide, so the details show for every visitor without scripts.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -247,7 +248,9 @@ all present and correct.
   Instagram, LinkedIn, X) and a Contact form, each labelled "Coming soon" (Arabic: "قريبًا"),
   visually muted, non-interactive, not keyboard-focusable, and collecting no data.
 - **FR-010**: Each placeholder MUST be activatable later by supplying its real value (number,
-  profile address or form destination) in one clearly documented place, without redesign.
+  profile address or form destination) in both the English and Arabic pages, following a
+  step-by-step guide included in the project. Each placeholder MUST be clearly marked in both
+  pages, and activating one MUST NOT require a redesign or depend on scripts.
 - **FR-011**: The footer MUST show the complete logo as supplied, a one-line summary ("Empowering women and youth across
   Jordan."), links to every section, "Registered NGO in Jordan" and "© 2026 We Can Organization".
 
