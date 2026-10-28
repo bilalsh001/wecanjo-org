@@ -40,15 +40,19 @@ CLARIFICATION remains.
 
 ## R4. Fonts
 
-- **Decision**: Google Fonts with `preconnect` and `display=swap`. The English page loads EB
-  Garamond (500, 600, italic 400) and Manrope (400, 600, 700). The Arabic page loads Amiri (400,
-  700) and IBM Plex Sans Arabic (400, 500, 600), whose Latin glyphs cover the email address and the
-  "EN" label. Fallbacks: Georgia/serif and system UI fonts; Tahoma for Arabic.
-- **Rationale**: Brand typefaces (Principle VI) without self-hosting work; loading only each page's
-  fonts keeps weight down (Principle V). As Principle VII requires, this is the only third-party
-  asset and is justified here.
-- **Alternatives considered**: self-hosting WOFF2 files (more files to maintain, little gain at this
-  size); system fonts only (breaks brand fidelity).
+- **Decision** (updated after clarify, 2026-10-28): self-host the fonts. WOFF2 files live in
+  `fonts/`, downloaded once from Google Fonts (fonts.google.com) together with each family's SIL
+  Open Font License text, and are declared with `@font-face` in `styles.css` using
+  `font-display: swap` and `unicode-range` subsets: EB Garamond (variable, normal and italic) and
+  Manrope (variable) in the Latin subset; Amiri (400, 700) in the Arabic subset; IBM Plex Sans
+  Arabic (400, 600) in the Arabic and Latin subsets, so it also covers the email address and the
+  "EN" label. Browsers download only the faces a page actually uses; each page preloads its
+  heading font. `tools/fetch-fonts.mjs` documents and repeats the download if fonts ever need
+  refreshing. Fallbacks: Georgia/serif and system UI fonts; Tahoma for Arabic.
+- **Rationale**: FR-033 (no third-party requests while a page loads) and Principle VI (brand
+  typefaces). It also saves a connection to another server, which helps Principle V.
+- **Alternatives considered**: loading from the Google Fonts service (rejected in clarify: every
+  visit would contact Google); system fonts only (breaks brand fidelity).
 
 ## R5. Navigation, menu and working without scripts
 
@@ -187,7 +191,7 @@ CLARIFICATION remains.
 
 ## R16. Privacy
 
-- **Decision**: No analytics, cookies, local storage or third-party scripts at runtime. Google Fonts
-  (one stylesheet plus font files) is the only external request.
-- **Rationale**: FR-033 and the constitution's privacy constraint. Font requests reveal the
-  visitor's IP address to Google, which the constitution explicitly permits for the brand fonts.
+- **Decision**: No analytics, cookies, local storage, third-party scripts or any other request to a
+  third-party server while a page loads; every file, fonts included, comes from
+  `www.wecan-jo.org`.
+- **Rationale**: FR-033 (as clarified) and the constitution's privacy constraint.

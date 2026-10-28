@@ -92,3 +92,6 @@ The location "Amman, Jordan" / "عمّان، الأردن" is shown beside the e
 **Initial state**: every Arabic item is `draft` except the organization's name and the founders'
 names, which are `reviewed` (confirmed on 2026-10-28). The status is recorded in `README.md` (not
 published, FR-021) and never shown to visitors.
+
+**Review deadline**: the organization's site coordinator reviews every `draft` item within 2 weeks
+of launch; the review is complete when every item is `reviewed` and the corrections are published.

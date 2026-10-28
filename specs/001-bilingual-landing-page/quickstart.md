@@ -60,10 +60,13 @@ attributes and budgets, internal links, placeholders, `_config.yml` exclusions, 
 ## 6. Release checklist
 
 1. All checks above pass on the feature branch; UAT for the General public role is executed and
-   documented with no open critical or major defects.
+   documented with no open critical or major defects, and the organization runs the SC-001
+   hallway test (at least 5 people new to the site).
 2. The organization approves the preview (English content approved; Arabic reviewed after launch).
 3. Merge `001-bilingual-landing-page` into `main` and push (only with the organization's OK).
 4. After GitHub Pages finishes building, verify on `https://www.wecan-jo.org`: `/` and `/ar/`
    load; `/sitemap.xml` and `/robots.txt` are served; `/DESIGN.html`, `/README.html` and `/specs/`
    return 404; the link preview shows correctly.
 5. Recommend turning on "Enforce HTTPS" in the repository's Pages settings.
+6. Within 2 weeks of launch, the organization's site coordinator reviews the Arabic text; apply the
+   corrections and mark each item `reviewed` in `README.md`.

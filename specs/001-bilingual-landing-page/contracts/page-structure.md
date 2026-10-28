@@ -8,8 +8,8 @@ differ.
 
 ```text
 <html lang="en|ar" dir="ltr|rtl" class="no-js">
-  head: metadata, preconnect + Google Fonts stylesheet for this language, styles.css,
-        hero image preload, inline script that swaps "no-js" for "js"
+  head: metadata, styles.css (includes the self-hosted @font-face rules), preload of this page's
+        heading font and the hero image, inline script that swaps "no-js" for "js"
   body
     a.skip-link → #main
     header.site-header (sticky)
@@ -55,16 +55,25 @@ differ.
   focus returns to the menu button when it closes.
 - It closes on Escape, the close button, a backdrop tap or choosing a link (which then moves to the
   section). The page behind does not scroll while it is open.
+- If the screen becomes 1024 px or wider while it is open (resize or rotation), it closes and the
+  full navigation shows. Desktop zoom levels that produce the narrow layout get the same menu.
 - Without `prefers-reduced-motion`, the slide takes about 250 ms; with it, the panel appears
   without movement.
 
 ## Section behavior
 
+- The current section is the one covering the middle of the screen below the header; no section is
+  marked while the hero is in view.
+- The header is at most about 15% of the screen height; on screens shorter than 500 px it is not
+  sticky.
 - Navigating to a section leaves its heading fully visible below the sticky header
   (`scroll-margin-top`).
 - Smooth scrolling happens only under `prefers-reduced-motion: no-preference`.
-- With scripts, the language switch link's address ends with the section currently in view (for
-  example `/ar/#founders`); without scripts it points to the top of the other page.
+- With scripts, the language switch link's address ends with the current section (for example
+  `/ar/#founders`); with no current section, or without scripts, it points to the top of the other
+  page.
+- The switch link carries `lang` and `hreflang` of the target language, and its accessible name is
+  "العربية" (on the English page) or "English" (on the Arabic page).
 
 ## Layout by width
 
@@ -89,7 +98,15 @@ the narrowest band to the widest. There is no horizontal scrolling from 320 px t
 
 ## Accessibility requirements
 
-- Skip link is the first focusable element and becomes visible on focus.
+- Skip link is the first focusable element and becomes visible on focus. Focus order follows the
+  visual order on every screen size: skip link, logo, navigation (or menu button), language
+  switch, then the page content.
+- Placeholder text keeps at least 4.5:1 contrast even in its muted style; text over photos keeps
+  at least 4.5:1 at every crop and width.
+- When reduced motion is requested, all movement is removed: menu slide, smooth scrolling and
+  transitions.
+- If the header mark fails to load, the name stays visible and the header keeps its layout; long
+  names and words wrap instead of overflowing.
 - Every interactive element has a visible focus ring (3 px Leaf Green with a 2 px white offset) and
   a target of at least 44×44 px.
 - Text contrast is at least 4.5:1, including text over photos (overlay ensures this).

@@ -15,7 +15,7 @@ names, which are confirmed. Anything not listed here must not appear on the site
 | Nav: Mission | Mission | رسالتنا |
 | Nav: Founders | Founders | المؤسسون |
 | Nav: Contact | Contact | تواصل معنا |
-| Language switch (link to the other page) | عربي (`lang="ar"`) | EN (`lang="en"`, accessible name "English") |
+| Language switch (link to the other page) | عربي (`lang="ar"`, accessible name "العربية") | EN (`lang="en"`, accessible name "English") |
 | Menu button | Open menu / Close menu | فتح القائمة / إغلاق القائمة |
 | Menu panel name | Menu | القائمة |
 
@@ -93,7 +93,7 @@ names, which are confirmed. Anything not listed here must not appear on the site
 | Key | English | Arabic |
 |-----|---------|--------|
 | Summary | Empowering women and youth across Jordan. | تمكين المرأة والشباب في جميع أنحاء الأردن. |
-| Registration line | Registered NGO in Jordan | منظمة غير حكومية مسجّلة في الأردن |
+| Registration line | Registered NGO / CBO in Jordan | مسجّلة في الأردن كمنظمة غير حكومية / مجتمعية |
 | Copyright | © 2026 We Can Organization | © 2026 جمعية نحن نستطيع |
 | Footer nav label | Footer | روابط التذييل |
 

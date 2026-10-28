@@ -26,8 +26,9 @@ step. See [research.md](research.md) for the decisions behind each choice.
 **Language/Version**: HTML5, CSS (custom properties, logical properties), JavaScript ES2020 with no
 transpiling; Windows PowerShell 5.1 for the image script; Node.js 22 for local tooling only
 
-**Primary Dependencies**: None at runtime except Google Fonts (EB Garamond, Manrope, Amiri, IBM Plex
-Sans Arabic). Tooling uses only built-in modules (Node) and System.Drawing (PowerShell)
+**Primary Dependencies**: None at runtime. The brand fonts (EB Garamond, Manrope, Amiri, IBM Plex
+Sans Arabic) are self-hosted WOFF2 files downloaded once from Google Fonts. Tooling uses only
+built-in modules (Node) and System.Drawing (PowerShell)
 
 **Storage**: N/A (static files in the repository)
 
@@ -45,8 +46,8 @@ latest two versions of Chrome, Edge, Firefox and Safari on desktop and mobile
 Performance, Accessibility, Best Practices and SEO at least 90 on both pages
 
 **Constraints**: No build step or package installs to edit or publish; all content usable without
-scripts; WCAG 2.2 AA; no tracking or cookies; each image at most 300 KB; first load at most 1.5 MB;
-original photos never modified
+scripts; WCAG 2.2 AA; no tracking, cookies or third-party requests; each image at most 300 KB;
+first load at most 1.5 MB; original photos never modified
 
 **Scale/Scope**: 2 pages × 6 sections, 4 founders, 4 photos plus the logo; low traffic
 
@@ -64,8 +65,8 @@ Checked against constitution **v1.1.0**.
 | IV. Responsive and Mobile-First | Mobile-first CSS with breakpoints at 640/1024/1440 px; menu button below 1024 px; verified at the four design widths in both languages | PASS | PASS |
 | V. Fast, Findable and Shareable | Static pages readable without scripts; generated web copies at most 300 KB with `srcset`, dimensions and lazy loading; full metadata, JSON-LD, sitemap, robots and icons; Lighthouse at least 90 | PASS | PASS |
 | VI. Brand Fidelity | `DESIGN.md` tokens drive the CSS; the header WC mark is the one approved crop; the complete logo is in the footer; no recoloring or distortion | PASS | PASS |
-| VII. Simple and Maintainable | No framework, build step or npm package; Google Fonts justified in R4; tools use built-ins only; placeholders and Arabic status documented in `README.md` | PASS | PASS |
-| Technology & Hosting Constraints | GitHub Pages from `main` with `CNAME` kept; `_config.yml` excludes project files; no tracking or cookies; browser support as listed | PASS | PASS |
+| VII. Simple and Maintainable | No framework, build step or npm package; the only third-party asset (the fonts) is justified in R4 and self-hosted; tools use built-ins only; placeholders and Arabic status documented in `README.md` | PASS | PASS |
+| Technology & Hosting Constraints | GitHub Pages from `main` with `CNAME` kept; `_config.yml` excludes project files; no tracking, cookies or third-party requests; browser support as listed | PASS | PASS |
 | Development Workflow & Quality Gates | Work on the feature branch; local preview; release gates and UAT in [quickstart.md](quickstart.md); merge to `main` only with approval; originals never overwritten | PASS | PASS |
 
 No violations, so Complexity Tracking is empty.
@@ -102,6 +103,7 @@ ar/
 └── index.html           # Arabic page (new, right-to-left)
 styles.css               # shared stylesheet (rewritten)
 script.js                # progressive enhancement: menu, active section, language hash (rewritten)
+fonts/                   # self-hosted WOFF2 brand fonts + SIL Open Font License texts
 images/                  # originals (unchanged): hero, women, community, youth, logo
 ├── web/                 # generated photo copies, logo mark, complete logo, og-image.jpg
 └── icons/               # icon-192.png, icon-512.png
@@ -115,6 +117,7 @@ _config.yml              # keeps specs/, tools/, DESIGN.md, README.md off the si
 README.md                # maintainer guide: preview, placeholders, Arabic status (not published)
 tools/
 ├── make-web-images.ps1  # generates images/web, icons and the share image from the originals
+├── fetch-fonts.mjs      # one-time (re)download of the brand fonts and their licenses
 ├── check-site.mjs       # automated structure, metadata, budget and placeholder checks
 └── preview-server.js    # local preview on port 5500
 ```

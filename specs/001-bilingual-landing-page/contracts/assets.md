@@ -37,13 +37,28 @@ Only the header mark is a crop; constitution 1.1.0 Principle VI allows exactly t
 | `images/icons/icon-192.png` | 192×192 | Same as above |
 | `images/icons/icon-512.png` | 512×512 | Same as above |
 
+## Fonts (self-hosted, FR-033)
+
+Downloaded once from Google Fonts (fonts.google.com) by `tools/fetch-fonts.mjs`, with each family's
+`OFL.txt` license saved next to the files.
+
+| File(s) | Family and styles | Subset | Used on |
+|---------|-------------------|--------|---------|
+| `fonts/eb-garamond-latin.woff2` | EB Garamond, variable weight | Latin | English |
+| `fonts/eb-garamond-italic-latin.woff2` | EB Garamond Italic, variable weight | Latin | English (vision quote) |
+| `fonts/manrope-latin.woff2` | Manrope, variable weight | Latin | English |
+| `fonts/amiri-400-arabic.woff2`, `fonts/amiri-700-arabic.woff2` | Amiri Regular and Bold | Arabic | Arabic |
+| `fonts/ibm-plex-sans-arabic-400-arabic.woff2`, `-600-arabic.woff2` | IBM Plex Sans Arabic Regular and SemiBold | Arabic | Arabic (and the "عربي" switch label) |
+| `fonts/ibm-plex-sans-arabic-400-latin.woff2`, `-600-latin.woff2` | Same, Latin glyphs | Latin | Arabic page (email, "EN", "© 2026") |
+| `fonts/OFL-*.txt` | License texts | | |
+
 ## Text assets
 
 | File | Budget |
 |------|--------|
 | `styles.css` | At most 25 KB |
 | `script.js` | At most 8 KB |
-| Google Fonts per page | At most 350 KB of font files |
+| Fonts downloaded per page | At most 350 KB |
 
 ## First-load budget
 

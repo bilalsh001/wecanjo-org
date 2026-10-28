@@ -17,6 +17,8 @@
 - Q: Are these Arabic spellings of the founders' names correct: إنصاف دعاس، د. ميسون العتوم، د. عبير دبابنة، عماد شهاب? → A: Yes, all four are correct as written.
 - Q: Should the site use the proposed wording for the hero sentence and section headings, or only words taken directly from the organization's own text? → A: Use the proposed wording; it is approved.
 - Q: When a contact channel such as a phone number becomes available, is it OK to switch it on by editing both the English and Arabic pages with the help of a short step-by-step guide, rather than in a single settings file? → A: Yes; edit both pages using a step-by-step guide, so the details show for every visitor without scripts.
+- Q: Who at the organization will review the Arabic text after launch, and within how many weeks? → A: The organization's site coordinator (who commissioned this site) reviews it within 2 weeks of launch.
+- Q: Should the brand fonts be stored with the website itself, instead of being loaded from Google's servers on every visit? → A: Yes; store the fonts with the site so pages make no requests to third-party servers.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -209,6 +211,16 @@ all present and correct.
   placeholder form, and assistive technology announces them as unavailable ("coming soon").
 - **Browser language set to Arabic**: the visitor is not redirected automatically; the language
   switch is immediately visible.
+- **Menu open during a resize or rotation**: if the screen becomes 1024 px or wider while the menu
+  is open, the menu closes and the full navigation shows.
+- **Desktop zoom that triggers the narrow layout**: the menu button and menu behave exactly as on
+  phones.
+- **Brand fonts fail to load**: text appears immediately in legible system fonts (Arabic-capable
+  on the Arabic page) and switches to the brand fonts when they arrive.
+- **Header mark fails to load**: the organization's name stays visible and the header layout does
+  not change.
+- **Long names, credentials and words**: they wrap onto new lines without overflowing or being cut
+  off, in both languages.
 
 ## Requirements *(mandatory)*
 
@@ -246,22 +258,28 @@ all present and correct.
   with a new message to that address, and the location "Amman, Jordan".
 - **FR-009**: Contact MUST show placeholders for Phone & WhatsApp, Social media (Facebook,
   Instagram, LinkedIn, X) and a Contact form, each labelled "Coming soon" (Arabic: "قريبًا"),
-  visually muted, non-interactive, not keyboard-focusable, and collecting no data.
+  visually muted (lighter styling whose text still meets the 4.5:1 contrast requirement),
+  non-interactive, not keyboard-focusable, and collecting no data. Their "coming soon" status
+  MUST remain available to screen readers as text.
 - **FR-010**: Each placeholder MUST be activatable later by supplying its real value (number,
   profile address or form destination) in both the English and Arabic pages, following a
   step-by-step guide included in the project. Each placeholder MUST be clearly marked in both
   pages, and activating one MUST NOT require a redesign or depend on scripts.
-- **FR-011**: The footer MUST show the complete logo as supplied, a one-line summary ("Empowering women and youth across
-  Jordan."), links to every section, "Registered NGO in Jordan" and "© 2026 We Can Organization".
+- **FR-011**: The footer MUST show the complete logo as supplied, a one-line summary ("Empowering
+  women and youth across Jordan."), links to every section using the same labels as the main
+  navigation, "Registered NGO / CBO in Jordan" (matching the registration wording in FR-003) and
+  "© 2026 We Can Organization".
 
 **Brand and imagery**
 
 - **FR-012**: The visual design MUST match the approved Stitch designs and the project design
   system (colors taken from the logo, the agreed typefaces, rounded cards, deep green and cream
-  accents).
+  accents). Where the approved designs differ from these requirements (for example the Arabic
+  name, the header logo treatment or helper text in the Contact section), these requirements
+  take precedence.
 - **FR-013**: The logo MUST be prominent. On every screen size the header MUST show the logo's
   "WC" mark on its own (trimmed from the supplied logo, without its built-in text), about
-  56–64 px tall on laptops and desktops and at least 44 px tall on phones, with the
+  56–64 px tall on laptops and desktops, 48–52 px on tablets and at least 44 px on phones, with the
   organization's name set in large heading type beside it ("We Can Organization" in English,
   "جمعية نحن نستطيع" in Arabic). The complete logo, exactly as supplied, MUST appear in the
   footer. Neither may be distorted or recolored.
@@ -275,11 +293,18 @@ all present and correct.
 
 - **FR-016**: The site MUST be available in English and Arabic with equivalent content in every
   section, including image descriptions, labels and page information for search engines and
-  sharing.
+  sharing. "Equivalent" means the same information and meaning; Arabic wording may be adapted
+  to read naturally rather than translated word for word. Any later content change MUST be made
+  in both languages in the same update.
 - **FR-017**: The Arabic version MUST be right-to-left throughout, with mirrored layout and
-  navigation; photographs and the logo MUST NOT be mirrored.
+  navigation; photographs and the logo MUST NOT be mirrored. Latin-script words and
+  abbreviations (such as "NGO" and "CBO"), numbers, and email and web addresses inside Arabic
+  text MUST display in their correct reading order.
 - **FR-018**: A language switch labelled "EN | عربي" MUST be in the header on wide screens and in
-  the menu on narrow screens; switching MUST keep the visitor at the same section.
+  the menu on narrow screens. Switching MUST keep the visitor at the same section (the section
+  marked as current, see FR-024); when no section is current, the other language opens at the
+  top. Screen readers MUST announce the switch in its own language, with an accessible name that
+  names the target language ("العربية" / "English").
 - **FR-019**: Each language MUST have its own permanent address, with English at the site's main
   address. Visitors MUST NOT be redirected automatically based on browser language.
 - **FR-020**: Wherever the Arabic version names the organization (header wordmark, footer, page
@@ -289,7 +314,10 @@ all present and correct.
 - **FR-021**: The Arabic version MUST launch at the same time as the English version, using the
   project team's draft translation. The organization reviews and corrects it after launch, so
   every Arabic text item MUST be editable in one clearly documented place, and the draft status
-  MUST be recorded in the project files (not shown to visitors) until the review is done.
+  MUST be recorded in the project files (not shown to visitors) until the review is done. The
+  organization's site coordinator reviews the Arabic text within 2 weeks of launch; the review is
+  done when every Arabic item is marked as reviewed in the project files and the corrections are
+  published.
 
 **Navigation and responsiveness**
 
@@ -299,31 +327,39 @@ all present and correct.
   button; the menu MUST contain the section links, the language switch and the email address, and
   MUST close via a close button, the Escape key, selecting a link or tapping outside it.
 - **FR-024**: The header MUST stay available while scrolling, and the navigation MUST indicate the
-  section currently in view.
+  section currently in view: the section covering the middle of the screen below the header (no
+  section is marked while the hero is in view). The header MUST take up no more than about 15% of
+  the screen height; on screens shorter than 500 px it may scroll away with the page.
 - **FR-025**: The layout MUST adapt to phones (from 320 px), tablets, small laptops and large
   desktops as in the approved designs, with no horizontal scrolling.
 - **FR-026**: All content and navigation MUST remain usable if scripts do not run.
 
 **Accessibility**
 
-- **FR-027**: The site MUST meet WCAG 2.2 Level AA, including sufficient text contrast, complete
-  keyboard operation (including the menu), visible focus, a "skip to content" link, logical
-  heading order, image descriptions, touch targets of at least 44×44 px and respect for
-  reduced-motion settings.
+- **FR-027**: The site MUST meet WCAG 2.2 Level AA, including: sufficient text contrast, also for
+  text over photographs at every crop and screen width; complete keyboard operation on every
+  screen size (the menu included) with a focus order that follows the visual order (logo,
+  navigation, language switch, then the page); visible focus; a "skip to content" link; logical
+  heading order; image descriptions; touch targets of at least 44×44 px; and removal of all
+  movement (menu, scrolling and transitions) when reduced motion is requested.
 
 **Search, sharing and privacy**
 
 - **FR-028**: Each language version MUST have a unique title and description, a preferred
-  (canonical) address and references to the other language version.
+  (canonical) address and references to the other language version. Titles MUST be at most 60
+  characters and descriptions at most 160 characters.
 - **FR-029**: Each language version MUST provide a link preview (name, description, image) for
-  messaging and social apps.
+  messaging and social apps. The preview image is the same for both languages: the complete logo
+  centered on the site's off-white background, in the standard wide preview format (1200×630).
 - **FR-030**: The site MUST describe the organization to search engines in a structured way:
   name in both languages, logo, website address, email address and location (Amman, Jordan).
 - **FR-031**: The site MUST provide a list of its pages for search engines (including both
   languages), crawling instructions, and browser and home-screen icons made from the logo.
 - **FR-032**: Internal project files (specifications, design notes, tooling) MUST NOT be reachable
   as public pages.
-- **FR-033**: The site MUST NOT track visitors, set cookies or collect personal data.
+- **FR-033**: The site MUST NOT track visitors, set cookies or collect personal data, and its pages
+  MUST NOT request anything from third-party servers while loading: the brand fonts are stored
+  with the site.
 
 ### Key Entities
 
@@ -341,34 +377,41 @@ all present and correct.
 ### Measurable Outcomes
 
 - **SC-001**: In a hallway test with at least 5 first-time visitors, at least 4 can correctly say
-  who the organization serves and what it aims to do within 30 seconds of opening the page.
+  who the organization serves and what it aims to do within 30 seconds of opening the page. The
+  organization runs this test as part of UAT sign-off, with people who have not seen the site.
 - **SC-002**: From any point on the page, a visitor reaches any section in at most 2 taps or
-  clicks, on every screen size and in both languages.
+  clicks, on every screen size and in both languages (on phones, opening the menu counts as one
+  tap).
 - **SC-003**: 100% of sections, labels, image descriptions and search/sharing texts exist in both
   English and Arabic.
 - **SC-004**: There is no horizontal scrolling at any width from 320 px to 2560 px, verified at
   390, 768, 1280 and 1440 px in both languages.
-- **SC-005**: On a typical mobile connection, the hero headline is visible within 2.5 seconds and
+- **SC-005**: On a typical mobile connection (a simulated mid-range phone on a slow 4G network), the
+  hero headline is visible within 2.5 seconds and
   the page responds to input without noticeable delay.
-- **SC-006**: Automated audits on mobile score at least 90 out of 100 for performance,
+- **SC-006**: Automated audits, run each time with the same widely used audit tool in its standard
+  mobile configuration, score at least 90 out of 100 for performance,
   accessibility, best practices and search-friendliness in both languages, and an automated
   accessibility scan reports zero WCAG 2.2 AA violations.
 - **SC-007**: The first visit downloads at most 1.5 MB in total, and no single image exceeds
   300 KB.
 - **SC-008**: Link previews for both language versions show the correct name, description and
-  image in a sharing-preview checker.
+  image in a public link-preview checker and when the link is shared in WhatsApp and Facebook.
 - **SC-009**: The email link opens a new message to info@wecan-jo.org on every tested device and
   browser.
 - **SC-010**: UAT for the General public role passes with no open critical or major defects in
-  either language, and the organization approves the English content for launch (the Arabic
-  wording is reviewed after launch).
+  either language, and the organization approves the English content for launch. The Arabic
+  wording is reviewed by the organization's site coordinator within 2 weeks of launch, and the
+  corrections are published.
 
 ## Assumptions
 
 - **Audience**: the general public is the only UAT role for this release; it includes women and
   youth, partners and funders, journalists and search/social visitors.
 - **Scope**: one single-page site per language. Programs, news, donations and volunteering pages
-  are out of scope for now and will be added as the organization develops.
+  are out of scope for now and will be added as the organization develops. A custom
+  page-not-found page is also out of scope: mistyped addresses show the hosting provider's
+  standard page.
 - **Copy**: the hero supporting sentence and the section headings in FR-001 and FR-002 were
   derived from the organization's content and approved by the organization on 2026-10-28.
 - **Arabic**: apart from the organization's registered Arabic name and the founders' names (both
@@ -378,10 +421,14 @@ all present and correct.
   available yet.
 - **Contact**: only email is available today; the other channels stay as placeholders until the
   organization supplies real details.
-- **Photos**: the four supplied photographs are used with the organization's permission; the
-  Wadi Rum photo in the older OneDrive copy is not used.
-- **Address**: the site keeps its existing web address, www.wecan-jo.org.
-- **Privacy**: no analytics or cookies, so no cookie consent notice is needed.
+- **Photos**: the organization supplied the four photographs (hands, women's workshop, Amman,
+  classroom) and asked for all of them to be used (2026-10-28); it remains responsible for their
+  usage rights. The Wadi Rum photo in the older OneDrive copy is not used.
+- **Address**: the site keeps its existing web address, www.wecan-jo.org. Secure (HTTPS) access
+  to it is a launch prerequisite for the preferred addresses and link previews; the organization
+  is advised to enforce HTTPS in its hosting settings.
+- **Privacy**: no analytics, cookies or third-party requests, so no cookie consent notice is
+  needed.
 - **Browsers**: the latest two versions of Chrome, Edge, Firefox and Safari on desktop and mobile.
 - **Design sources**: the approved Stitch project "We Can Organization Website" (screens for large
   desktop, laptop, tablet, mobile, mobile menu, and Arabic laptop and mobile) and the repository's
