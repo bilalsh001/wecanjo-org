@@ -236,12 +236,13 @@ the sitemap, robots file, icons and manifest exist.
 
 **Purpose**: Plan, run and record UAT before the organization's sign-off
 
-- [ ] T065 Write `specs/001-bilingual-landing-page/uat/uat-plan.md`: the General public role and its personas (woman or young person seeking opportunities, partner or funder, journalist, visitor from search or a shared link), scope, environments (in-app browser at 390, 768, 1280 and 1440 px; English and Arabic), entry and exit criteria, severity levels and the defect log format
-- [ ] T066 Write `specs/001-bilingual-landing-page/uat/uat-scripts.md`: numbered UAT scripts with steps and expected results, mapped to user stories, FRs and SCs, covering every persona in both languages
-- [ ] T067 Execute every UAT script in English at 390, 768, 1280 and 1440 px and record pass/fail with evidence in `specs/001-bilingual-landing-page/uat/uat-results.md`
-- [ ] T068 Execute every UAT script in Arabic at 390, 768, 1280 and 1440 px and record pass/fail with evidence in `specs/001-bilingual-landing-page/uat/uat-results.md`
-- [ ] T069 Fix every critical or major defect found in UAT, re-run the affected scripts, and update `specs/001-bilingual-landing-page/uat/uat-results.md`
-- [ ] T070 Write `specs/001-bilingual-landing-page/uat/uat-summary.md` for the organization: results by persona and language, open minor items, instructions for the SC-001 hallway test, a cross-browser spot check for the organization (iPhone Safari, Android Chrome, and Firefox if available), the post-launch checks (link previews in a checker, WhatsApp and Facebook for SC-008; `/DESIGN.html`, `/README.html` and `/specs/` returning 404 for FR-032), and the sign-off checklist from quickstart.md
+- [X] T065 Write `specs/001-bilingual-landing-page/uat/uat-plan.md`: the General public role and its personas (woman or young person seeking opportunities, partner or funder, journalist, visitor from search or a shared link), scope, environments (in-app browser at 390, 768, 1280 and 1440 px; English and Arabic), entry and exit criteria, severity levels and the defect log format
+- [X] T066 Write `specs/001-bilingual-landing-page/uat/uat-scripts.md`: numbered UAT scripts with steps and expected results, mapped to user stories, FRs and SCs, covering every persona in both languages
+- [X] T067 Execute every UAT script in English at 390, 768, 1280 and 1440 px and record pass/fail with evidence in `specs/001-bilingual-landing-page/uat/uat-results.md`
+- [X] T068 Execute every UAT script in Arabic at 390, 768, 1280 and 1440 px and record pass/fail with evidence in `specs/001-bilingual-landing-page/uat/uat-results.md`
+- [X] T069 Fix every critical or major defect found in UAT, re-run the affected scripts, and update `specs/001-bilingual-landing-page/uat/uat-results.md`
+  - No critical or major defects were found in UAT; the one major issue from the release checks (D-01, header height at 320 px) was fixed before UAT and retested. See uat-results.md, "Defect log".
+- [X] T070 Write `specs/001-bilingual-landing-page/uat/uat-summary.md` for the organization: results by persona and language, open minor items, instructions for the SC-001 hallway test, a cross-browser spot check for the organization (iPhone Safari, Android Chrome, and Firefox if available), the post-launch checks (link previews in a checker, WhatsApp and Facebook for SC-008; `/DESIGN.html`, `/README.html` and `/specs/` returning 404 for FR-032), and the sign-off checklist from quickstart.md
 
 ---
 
