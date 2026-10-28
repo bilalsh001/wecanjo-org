@@ -313,5 +313,5 @@ Task: "Create site.webmanifest"                                # T056
 
 ## Phase 11: Convergence
 
-- [ ] T071 CRITICAL: Make every link and button at least 44 × 44 px in `styles.css` (the `.lang-switch` links are 38 px tall on both pages; on `/ar/` the header and footer links "رؤيتنا" and "رسالتنا" are 32–43 px wide), then re-measure all targets at 390 and 1280 px in both languages and re-run axe per Constitution III, FR-027 (contradicts)
+- [X] T071 CRITICAL: Make every link and button at least 44 × 44 px in `styles.css` (the `.lang-switch` links are 38 px tall on both pages; on `/ar/` the header and footer links "رؤيتنا" and "رسالتنا" are 32–43 px wide), then re-measure all targets at 390 and 1280 px in both languages and re-run axe per Constitution III, FR-027 (contradicts)
 - [ ] T072 CRITICAL: Serve modern-format WebP copies of the photos and logo images with the existing JPEG/PNG copies as fallback (`<source type="image/webp">` in `index.html` and `ar/index.html`), generated without package installs per Principle VII (for example a browser-canvas converter in `tools/`), keeping the sharing image and icons as JPEG/PNG/ICO, and update contracts/assets.md, research R6 and the budgets check; if the organization prefers JPEG only, amend Principle V through `/speckit-constitution` instead, per Constitution V (contradicts)

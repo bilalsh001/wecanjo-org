@@ -458,10 +458,13 @@ main section[id] {
   gap: 0 20px;
 }
 
+/* Short labels (for example "رؤيتنا") still get a 44 × 44 px target. */
 .site-nav__link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-block-size: 44px;
+  min-inline-size: 44px;
   color: var(--deep-grove);
   font-weight: 600;
   text-decoration: none;
@@ -486,17 +489,18 @@ main section[id] {
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 3px;
+  padding: 2px;
   border: 1px solid var(--sage);
   border-radius: 999px;
 }
 
+/* Both segments are full 44 × 44 px targets (Constitution III). */
 .lang-current,
 .lang-switch {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-block-size: 38px;
+  min-block-size: 44px;
   min-inline-size: 44px;
   padding-inline: 12px;
   border-radius: 999px;
@@ -642,6 +646,7 @@ main section[id] {
 
   .js .site-nav__link {
     display: flex;
+    justify-content: flex-start;
     min-block-size: 64px;
     padding-block: 10px;
     border-block-end: 1px solid rgb(160 173 135 / 0.45);
@@ -1072,7 +1077,9 @@ main section[id] {
 .site-footer__links a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-block-size: 44px;
+  min-inline-size: 44px;
   color: var(--pure-white);
   text-decoration: none;
 }

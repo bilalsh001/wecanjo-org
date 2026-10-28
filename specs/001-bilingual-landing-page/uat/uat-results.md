@@ -122,6 +122,7 @@ Two issues found earlier, in the release checks, were fixed before UAT started:
 |----|----------|-----------------|----------|-------------------|--------|
 | D-01 | T063 narrow-screen check | en, 320 px | Major | Header at most about 15% of the screen (FR-024) / the long name pushed the menu button onto a second row, 117 px of 640 px (18%) | Fixed in `29e0522` (67 px, 10.5%); retested in UAT at 390 px |
 | D-02 | T043 / T039 visual check | both, all widths | Minor | Vision label centred / it sat off-centre because paragraphs are capped at 70 characters | Fixed in `c86698a` |
+| D-03 | `/speckit-converge` after UAT | both, all widths | Major | Every link and button at least 44 × 44 px (Constitution III) / the language switch was 38 px tall, and on `/ar/` the links "رؤيتنا" and "رسالتنا" were 32–43 px wide | Fixed in T071; re-measured at 390 and 1280 px (menu open and closed), axe 0 violations, UAT page checks pass |
 
 ## Covered elsewhere
 
