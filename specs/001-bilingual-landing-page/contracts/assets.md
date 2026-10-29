@@ -11,9 +11,9 @@ than its JPEG/PNG; the JPEG/PNG stays as the fallback.
 | Original | Use | Generated files | Crop |
 |----------|-----|-----------------|------|
 | `images/hero.jpg` | Hero, 640 px and wider | `images/web/hero-960.jpg`, `hero-1440.jpg`, `hero-1920.jpg` | 3:2 landscape, centered |
-| `images/hero.jpg` | Hero, phones | `images/web/hero-portrait-480.jpg`, `-720.jpg`, `-1080.jpg` | 4:5 portrait, centered on the hands |
+| `images/hero.jpg` | Hero, phones | `images/web/hero-portrait-480.jpg`, `-800.jpg`, `-1080.jpg` | 4:5 portrait, centered on the hands |
 | `images/women.jpg` | Who we are | `images/web/women-480.jpg`, `-800.jpg`, `-1080.jpg` | Original aspect (2:3) |
-| `images/community.jpg` | Vision band background | `images/web/community-640.jpg`, `-1280.jpg`, `-1440.jpg` | 16:9 landscape, focused on the lower half (theatre) |
+| `images/community.jpg` | Vision band background (phones always get the 640 px copy) | `images/web/community-640.jpg`, `-1280.jpg`, `-1440.jpg` | 16:9 landscape, focused on the lower half (theatre) |
 | `images/youth.jpg` | How we create change | `images/web/youth-480.jpg`, `-800.jpg`, `-1200.jpg` | Original aspect (16:9) |
 
 Every file above also has a `.webp` copy with the same name and size (for example
@@ -27,7 +27,10 @@ Markup rules: every photo is a `<picture>` whose `<source type="image/webp">` li
 with the same widths, `sizes` and `media` as the JPEG fallback that follows it; explicit `width`
 and `height`, and descriptions from [content.md](content.md). The hero is not lazy-loaded and has
 `fetchpriority="high"` plus matching WebP preloads (`type="image/webp"`, so a browser without WebP
-skips them); every other photo uses `loading="lazy" decoding="async"`.
+skips them); every other photo uses `loading="lazy" decoding="async"`. Below 640 px the vision
+band always uses its 640 px copy (a `<source media="(max-width: 639px)">` pair): the photo sits
+under a dark overlay, and the 1280 px copy a phone would otherwise pick added about 120 KB before
+the first paint, enough to keep the Lighthouse Performance score under 90 (T062, research R13).
 
 ## Logo
 
@@ -60,10 +63,13 @@ Downloaded once from Google Fonts (fonts.google.com) by `tools/fetch-fonts.mjs`,
 | `fonts/eb-garamond-latin.woff2` | EB Garamond, variable weight | Latin | English |
 | `fonts/eb-garamond-italic-latin.woff2` | EB Garamond Italic, variable weight | Latin | English (vision quote) |
 | `fonts/manrope-latin.woff2` | Manrope, variable weight | Latin | English |
-| `fonts/amiri-400-arabic.woff2`, `fonts/amiri-700-arabic.woff2` | Amiri Regular and Bold | Arabic | Arabic |
-| `fonts/ibm-plex-sans-arabic-400-arabic.woff2`, `-600-arabic.woff2` | IBM Plex Sans Arabic Regular and SemiBold | Arabic | Arabic (and the "عربي" switch label) |
-| `fonts/ibm-plex-sans-arabic-400-latin.woff2`, `-600-latin.woff2` | Same, Latin glyphs | Latin | Arabic page (email, "EN", "© 2026") |
+| `fonts/amiri-400-arabic.woff2` | Amiri Regular (the only Arabic heading weight) | Arabic | Arabic |
+| `fonts/ibm-plex-sans-arabic-400-arabic.woff2`, `-600-arabic.woff2` | IBM Plex Sans Arabic Regular and SemiBold | Arabic | Arabic |
 | `fonts/OFL-*.txt` | License texts | | |
+
+Each page downloads only its own language's fonts. Latin characters inside Arabic text (the email
+address, "EN", "© 2026") use the system sans-serif, and the "عربي" label on the English page uses
+the system's Arabic font (DESIGN.md, research R4).
 
 ## Text assets
 

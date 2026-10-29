@@ -44,13 +44,19 @@ CLARIFICATION remains.
   `fonts/`, downloaded once from Google Fonts (fonts.google.com) together with each family's SIL
   Open Font License text, and are declared with `@font-face` in `styles.css` using
   `font-display: swap` and `unicode-range` subsets: EB Garamond (variable, normal and italic) and
-  Manrope (variable) in the Latin subset; Amiri (400, 700) in the Arabic subset; IBM Plex Sans
-  Arabic (400, 600) in the Arabic and Latin subsets, so it also covers the email address and the
-  "EN" label. Browsers download only the faces a page actually uses; each page preloads its
-  heading font. `tools/fetch-fonts.mjs` documents and repeats the download if fonts ever need
-  refreshing. Fallbacks: Georgia/serif and system UI fonts; Tahoma for Arabic.
+  Manrope (variable) in the Latin subset; Amiri (400) and IBM Plex Sans Arabic (400, 600) in the
+  Arabic subset. Each page downloads only its own language's fonts: Latin characters inside
+  Arabic text (the email address, "EN", "© 2026") and the "عربي" label on the English page use
+  system fonts. Each page preloads its heading font. `tools/fetch-fonts.mjs` documents and repeats
+  the download if fonts ever need refreshing. Fallbacks: Georgia/serif and system UI fonts; Tahoma
+  for Arabic.
 - **Rationale**: FR-033 (no third-party requests while a page loads) and Principle VI (brand
   typefaces). It also saves a connection to another server, which helps Principle V.
+- **Revision (2026-10-29)**: the first version also loaded Amiri Bold and the Latin subset of
+  IBM Plex Sans Arabic, and the English page loaded IBM Plex Sans Arabic SemiBold for its one
+  Arabic word. The Lighthouse runs for T062 showed the fonts were what kept mobile Performance
+  under 90, so Arabic headings now use Amiri Regular only and those three faces were dropped
+  (recorded in DESIGN.md first, Principle VI).
 - **Alternatives considered**: loading from the Google Fonts service (rejected in clarify: every
   visit would contact Google); system fonts only (breaks brand fidelity).
 
@@ -68,6 +74,14 @@ CLARIFICATION remains.
   `prefers-reduced-motion: no-preference`, and `scroll-margin-top` keeps headings clear of the
   sticky header.
 - **Rationale**: FR-022 to FR-026, Principles III and IV.
+- **Revision (2026-10-29, T062)**: `script.js` now loads with `async` (it comes after all the
+  content, so everything it uses is already parsed), and the inline `no-js` script sits just after
+  the stylesheet, so the browser reads the rest of the page once the styles are in and lays it out
+  once, styled. The current section is watched with a band at the middle of the screen set in
+  percentages, so the script never measures the header and needs no ResizeObserver, and the
+  header hairline is set only on scroll (a page opened at a section link scrolls there too).
+  Before, the deferred script ran in the same task as the browser's first layout, and
+  Lighthouse's simulation counted that layout as blocking time.
 - **Alternatives considered**: a CSS-only checkbox menu (weak accessibility); a `<details>` menu (no
   focus containment or backdrop); no menu at all (fails FR-023).
 
@@ -78,7 +92,7 @@ CLARIFICATION remains.
   copies to `images/web/<name>-<width>.jpg`. Quality starts at 82 and steps down (not below 60)
   until each file is at most 280 KB, leaving headroom under the 300 KB limit; metadata is dropped.
   The hero uses art direction: a 3:2 landscape crop from 640 px up and a 4:5 portrait crop for
-  phones. Widths: hero landscape 960/1440/1920, hero portrait 480/720/1080, women 480/800/1080,
+  phones. Widths: hero landscape 960/1440/1920, hero portrait 480/800/1080, women 480/800/1080,
   youth 480/800/1200, community 640/1280/1440 (women and community capped so they fit the
   budget; found when the script first ran). Pages use `<picture>`, `srcset` and `sizes` with explicit
   `width`/`height`; images below the first screen get `loading="lazy" decoding="async"`, and the
@@ -91,6 +105,11 @@ CLARIFICATION remains.
   JPEG/PNG as the fallback; the hero preloads point at the WebP files with `type="image/webp"`.
   WebP saves 33–47% on most photos, 4–21% on the already heavily compressed women and Amman
   photos, and about 85% on the logos. The sharing image stays JPEG and the icons PNG/ICO.
+- **Revision (2026-10-29, T062)**: `make-webp.mjs` now starts the Amman band copies and the phone
+  hero copies at quality 0.5 (both photos sit under a solid 82% overlay there, so the softer
+  encoding is not visible) and the women photo at 0.7. That saves 12–39% on the women and band
+  photos instead of 4–21%, and 58–72% on the phone hero (the 800 px copy went from 61 KB to
+  35 KB). Phones get the 640 px band copy (R13).
 - **Rationale**: FR-015, Principle V (web-sized, modern-format copies and budgets) with no
   package installs (Principle VII); originals stay untouched.
 - **Alternatives considered**: WebP/AVIF through sharp, Squoosh or cwebp (needs a package
@@ -183,7 +202,7 @@ CLARIFICATION remains.
 
 ## R13. Performance budget
 
-- **Decision**: Phone hero image at most 120 KB (720 px), fonts at most 350 KB per page, CSS at
+- **Decision**: Phone hero image at most 120 KB (800 px), fonts at most 350 KB per page, CSS at
   most 32 KB uncompressed, script at most 8 KB, no other render-blocking requests; Largest
   Contentful Paint at most 2.5 s under Lighthouse mobile throttling.
 - **Rationale**: SC-005, SC-006 and SC-007.
@@ -192,6 +211,13 @@ CLARIFICATION remains.
   stylesheet is about 28 KB (about 7 KB as served compressed), and first loads stay far below the
   1.5 MB target (about 450 KB English, 630 KB Arabic). Stripping the comments would save little and
   make the file harder for the organization to maintain, so the limit moved to 32 KB.
+- **Revision (2026-10-29, T062)**: the phone hero copy was 720 px wide. Lighthouse's test phone
+  (412 px wide at 1.75x) needs 721 px, so it skipped the 720 px copy and downloaded the 1080 px
+  one; the middle copy is now 800 px (35 KB as WebP, R6). Each page also stopped downloading the
+  other language's fonts (R4). On a phone the women, Amman and youth photos sit within the
+  browser's lazy-loading distance, so they download before the first paint and share the slow
+  connection with the hero in Lighthouse's simulation; below 640 px the Amman band therefore uses
+  its 640 px copy (48 KB instead of 167 KB as WebP).
 
 ## R14. Replacing the current site files
 

@@ -29,11 +29,11 @@
   <meta name="twitter:description" content="We Can Organization is a community-based NGO in Jordan creating opportunities and resources for women and youth to thrive socially and economically.">
   <meta name="twitter:image" content="https://www.wecan-jo.org/images/web/og-image.jpg">
   <meta name="twitter:image:alt" content="We Can Organization logo">
-  <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/eb-garamond-latin.woff2" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/images/web/hero-portrait-720.webp" imagesrcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-720.webp 720w, /images/web/hero-portrait-1080.webp 1080w" imagesizes="100vw" media="(max-width: 639px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/images/web/hero-portrait-800.webp" imagesrcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-800.webp 800w, /images/web/hero-portrait-1080.webp 1080w" imagesizes="100vw" media="(max-width: 639px)" fetchpriority="high">
   <link rel="preload" as="image" type="image/webp" href="/images/web/hero-1440.webp" imagesrcset="/images/web/hero-960.webp 960w, /images/web/hero-1440.webp 1440w, /images/web/hero-1920.webp 1920w" imagesizes="100vw" media="(min-width: 640px)" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -102,8 +102,8 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="top-title">
       <picture class="hero__media">
-        <source type="image/webp" media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-720.webp 720w, /images/web/hero-portrait-1080.webp 1080w" sizes="100vw" width="480" height="600">
-        <source media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-720.jpg 720w, /images/web/hero-portrait-1080.jpg 1080w" sizes="100vw" width="480" height="600">
+        <source type="image/webp" media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.webp 480w, /images/web/hero-portrait-800.webp 800w, /images/web/hero-portrait-1080.webp 1080w" sizes="100vw" width="480" height="600">
+        <source media="(max-width: 639px)" srcset="/images/web/hero-portrait-480.jpg 480w, /images/web/hero-portrait-800.jpg 800w, /images/web/hero-portrait-1080.jpg 1080w" sizes="100vw" width="480" height="600">
         <source type="image/webp" srcset="/images/web/hero-960.webp 960w, /images/web/hero-1440.webp 1440w, /images/web/hero-1920.webp 1920w" sizes="100vw">
         <img src="/images/web/hero-1440.jpg" srcset="/images/web/hero-960.jpg 960w, /images/web/hero-1440.jpg 1440w, /images/web/hero-1920.jpg 1920w" sizes="100vw" width="1440" height="960" alt="Many hands from different people stacked together" fetchpriority="high">
       </picture>
@@ -142,6 +142,8 @@
 
     <section class="vision" id="vision" aria-labelledby="vision-title">
       <picture>
+        <source type="image/webp" media="(max-width: 639px)" srcset="/images/web/community-640.webp">
+        <source media="(max-width: 639px)" srcset="/images/web/community-640.jpg">
         <source type="image/webp" srcset="/images/web/community-640.webp 640w, /images/web/community-1280.webp 1280w, /images/web/community-1440.webp 1440w" sizes="100vw">
         <img class="vision__media" src="/images/web/community-1280.jpg" srcset="/images/web/community-640.jpg 640w, /images/web/community-1280.jpg 1280w, /images/web/community-1440.jpg 1440w" sizes="100vw" width="1280" height="720" alt="The Roman Theatre in Amman with the city's hillside neighborhoods behind it" loading="lazy" decoding="async">
       </picture>
@@ -314,6 +316,6 @@
     </div>
   </footer>
 
-  <script src="/script.js" defer></script>
+  <script src="/script.js" async></script>
 </body>
 </html>

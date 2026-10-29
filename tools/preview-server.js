@@ -1,8 +1,10 @@
 // Local preview server for the website (Node built-ins only).
 // Usage: node tools/preview-server.js [site folder] [port]
+// Like GitHub Pages, it compresses text files with gzip, so local measurements match the live site.
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const root = path.resolve(process.argv[2] || '.');
 const port = Number(process.argv[3] || 5500);
@@ -17,6 +19,7 @@ const types = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.woff2': 'font/woff2',
@@ -49,10 +52,13 @@ http.createServer((req, res) => {
         res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
         return res.end('Not found');
       }
-      res.writeHead(200, {
-        'Content-Type': types[path.extname(file).toLowerCase()] || 'application/octet-stream',
-        'Cache-Control': 'no-store',
-      });
+      const type = types[path.extname(file).toLowerCase()] || 'application/octet-stream';
+      const headers = { 'Content-Type': type, 'Cache-Control': 'no-store', Vary: 'Accept-Encoding' };
+      if (/^(text\/|application\/(json|manifest\+json|xml)|image\/svg)/.test(type) && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+        data = zlib.gzipSync(data);
+        headers['Content-Encoding'] = 'gzip';
+      }
+      res.writeHead(200, headers);
       res.end(data);
     });
   });

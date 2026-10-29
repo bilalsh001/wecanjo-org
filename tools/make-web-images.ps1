@@ -63,7 +63,7 @@ function Get-CropRegion([System.Drawing.Image]$image, $aspect, [double]$focusX =
 # --- Photos (contracts/assets.md) ---
 $photos = @(
   @{ Name = 'hero'; File = 'hero.jpg'; Aspect = 1.5; Widths = 960, 1440, 1920 },
-  @{ Name = 'hero-portrait'; File = 'hero.jpg'; Aspect = 0.8; Widths = 480, 720, 1080 },
+  @{ Name = 'hero-portrait'; File = 'hero.jpg'; Aspect = 0.8; Widths = 480, 800, 1080 },
   @{ Name = 'women'; File = 'women.jpg'; Widths = 480, 800, 1080 },
   @{ Name = 'community'; File = 'community.jpg'; Aspect = 16 / 9; FocusY = 0.92; Widths = 640, 1280, 1440 },
   @{ Name = 'youth'; File = 'youth.jpg'; Widths = 480, 800, 1200 }

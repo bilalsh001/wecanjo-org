@@ -9,7 +9,7 @@ const outDir = 'fonts';
 const cssUrl = 'https://fonts.googleapis.com/css2?' + [
   'family=EB+Garamond:ital,wght@0,400..800;1,400..800',
   'family=Manrope:wght@200..800',
-  'family=Amiri:wght@400;700',
+  'family=Amiri:wght@400',
   'family=IBM+Plex+Sans+Arabic:wght@400;600',
 ].join('&') + '&display=swap';
 const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
@@ -19,11 +19,8 @@ const wanted = [
   { family: 'EB Garamond', style: 'italic', subset: 'latin', file: 'eb-garamond-italic-latin.woff2' },
   { family: 'Manrope', style: 'normal', subset: 'latin', file: 'manrope-latin.woff2' },
   { family: 'Amiri', style: 'normal', weight: '400', subset: 'arabic', file: 'amiri-400-arabic.woff2' },
-  { family: 'Amiri', style: 'normal', weight: '700', subset: 'arabic', file: 'amiri-700-arabic.woff2' },
   { family: 'IBM Plex Sans Arabic', style: 'normal', weight: '400', subset: 'arabic', file: 'ibm-plex-sans-arabic-400-arabic.woff2' },
   { family: 'IBM Plex Sans Arabic', style: 'normal', weight: '600', subset: 'arabic', file: 'ibm-plex-sans-arabic-600-arabic.woff2' },
-  { family: 'IBM Plex Sans Arabic', style: 'normal', weight: '400', subset: 'latin', file: 'ibm-plex-sans-arabic-400-latin.woff2' },
-  { family: 'IBM Plex Sans Arabic', style: 'normal', weight: '600', subset: 'latin', file: 'ibm-plex-sans-arabic-600-latin.woff2' },
 ];
 const licenses = {
   'OFL-eb-garamond.txt': 'https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/OFL.txt',

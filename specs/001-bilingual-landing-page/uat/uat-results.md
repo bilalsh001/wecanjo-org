@@ -130,6 +130,7 @@ Two issues found earlier, in the release checks, were fixed before UAT started:
 |--------|-----|------------------|
 | T071: every link and button at least 44 × 44 px | Constitution III (found by `/speckit-converge`, D-03) | Targets re-measured at 390 and 1280 px, menu open and closed; axe 0 violations; `checkPage()` passes in both languages |
 | T072: every photo and logo served as WebP with the JPEG/PNG copy as fallback; hero preloads switched to WebP | Constitution V (modern-format copies), chosen by the organization | Both pages show only WebP and download no JPEG/PNG; layout, header mark and footer logo unchanged (CLS 0, vision photo still fills its band); `checkPage()` and `interact()` pass; axe 0 violations; `check-site` passes, including a new rule that every photo and logo has a matching WebP source |
+| T062: `script.js` loads with `async`, the `no-js` script follows the stylesheet and the current section is watched with a band at mid-screen; Arabic headings in Amiri Regular only; each page loads only its own language's fonts; phone hero copy 800 px wide; phone hero and Amman band compressed harder under their overlays; phones get the 640 px band copy | Constitution V and SC-006 (Performance was 80–81 English, 76–78 Arabic) | Lighthouse 94 / 100 / 100 / 100 (English) and 91 / 100 / 100 / 100 (Arabic), five runs each; `checkPage()` and `interact()` pass at 390 and 1280 px in both languages (current section top → contact); axe 0 violations; a page opened at a section link still marks it and shows the header hairline; each page downloads only its own three font files; `check-site` passes |
 
 ## Covered elsewhere
 
@@ -137,6 +138,6 @@ Two issues found earlier, in the release checks, were fixed before UAT started:
 |------|-------|--------|
 | SC-001 hallway test (5 first-time visitors) | uat-summary.md, for the organization | To do by the organization |
 | Email app opens on real devices (SC-009) | uat-summary.md device spot check | To do by the organization |
-| Lighthouse scores (SC-005, SC-006) | T062, uat/lighthouse.md | Waiting for a run in Edge |
+| Lighthouse scores (SC-005, SC-006) | T062, uat/lighthouse.md | Passed on 2026-10-29: Performance 94 (English) and 91 (Arabic), Accessibility, Best Practices and SEO 100 on both; headline visible at 0.9 s, blocking time 10 ms. Largest Contentful Paint (3.1 s / 3.5 s) stays above the plan's 2.5 s goal |
 | W3C HTML check | T061 | Passed on 2026-10-29: 0 errors, 0 warnings on both pages (Nu checker 26.10.18) |
 | Link previews in a checker, WhatsApp and Facebook (SC-008) | uat-summary.md post-launch checks | After launch |

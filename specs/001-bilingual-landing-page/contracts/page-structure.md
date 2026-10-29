@@ -8,8 +8,10 @@ differ.
 
 ```text
 <html lang="en|ar" dir="ltr|rtl" class="no-js">
-  head: metadata, styles.css (includes the self-hosted @font-face rules), preload of this page's
-        heading font and the hero image, inline script that swaps "no-js" for "js"
+  head: metadata, preload of this page's heading font and the hero image, styles.css (includes
+        the self-hosted @font-face rules), then the inline script that swaps "no-js" for "js"
+        (after the stylesheet on purpose: the browser then reads the rest of the page once the
+        styles are in and lays it out once, research R5)
   body
     a.skip-link → #main
     header.site-header (sticky)
@@ -28,7 +30,7 @@ differ.
       section#founders       eyebrow, h2, ul of 4 founder cards (badge, h3 name, credential, role)
       section#contact        eyebrow, h2, ul of channel cards (email, then phone and social placeholders), form placeholder
     footer.site-footer       complete logo, summary, nav[aria-label=Footer], registration, ©
-    script /script.js defer
+    script /script.js async
 ```
 
 - Exactly one `h1` (the hero headline); every section heading is `h2`; founder names and contact
@@ -63,8 +65,8 @@ differ.
 
 ## Section behavior
 
-- The current section is the one covering the middle of the screen below the header; no section is
-  marked while the hero is in view.
+- The current section is the one covering the middle of the screen; no section is marked while the
+  hero is in view.
 - The header is at most about 15% of the screen height; on screens shorter than 500 px it is not
   sticky.
 - Navigating to a section leaves its heading fully visible below the sticky header

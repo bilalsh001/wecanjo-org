@@ -164,8 +164,9 @@ It should read as a credible, modern civil-society organization: elegant rather 
 
 - **EB Garamond** (English headings): classical serif that echoes the lettering in the logo. Display `500` at `56px/64px` on desktop and `40px/48px` on mobile; section headings (`h2`) `500` at `40px/48px` desktop and `32px/40px` mobile; card titles (`h3`) `600` at `24px/32px`.
 - **Manrope** (English body and interface): clean, modern sans-serif. Body `400` at `18px/30px` desktop and `16px/26px` mobile; buttons and navigation `600` at `16px/24px`; eyebrow labels `700` at `13px/16px`, uppercase, `0.12em` tracking, in Leaf Green.
-- **Amiri** (Arabic headings): classical Naskh that matches EB Garamond's tone, at the same sizes with about 10% more line height.
+- **Amiri** (Arabic headings): classical Naskh that matches EB Garamond's tone, at the same sizes with about 10% more line height, always in the Regular (`400`) weight; the bold cut is heavy and is not loaded, which keeps the Arabic page light.
 - **IBM Plex Sans Arabic** (Arabic body and interface): modern and highly legible; body `400` at `17px/30px`.
+- Each page downloads only the fonts of its own language: Latin characters inside Arabic text (the email address, "EN", "© 2026") use the system sans-serif, and the "عربي" label on the English page uses the system's Arabic font.
 - Keep lines to about 70 characters. Never letter-space or uppercase Arabic text.
 
 ## 4. Component Stylings

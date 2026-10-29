@@ -16,18 +16,24 @@ const webDir = join(root, 'images', 'web');
 const sources = readdirSync(webDir).filter((f) => /\.(jpe?g|png)$/i.test(f) && f !== 'og-image.jpg').sort();
 const target = (f) => f.replace(/\.(jpe?g|png)$/i, '.webp');
 const expected = new Set(sources.map(target));
+// Starting quality per file: the Amman band and the phone hero sit under an 82% dark overlay, so they
+// can be compressed much harder without any visible difference; the detailed women photo a little
+// harder than the rest.
+const startQuality = Object.fromEntries(sources.map((f) => [f,
+  /^(community|hero-portrait)-/.test(f) ? 0.5 : f.startsWith('women-') ? 0.7 : f.endsWith('.png') ? 0.9 : 0.8]));
 const saved = [];
 
 // Runs in the browser: encode each file, stepping the quality down until the WebP is smaller.
 const page = `<!doctype html><meta charset="utf-8"><title>WebP copies</title><script type="module">
 const files = ${JSON.stringify(sources)};
+const startQuality = ${JSON.stringify(startQuality)};
 try {
   for (const file of files) {
     const source = await (await fetch('/source/' + file)).blob();
     const bitmap = await createImageBitmap(source);
     const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
     canvas.getContext('2d').drawImage(bitmap, 0, 0);
-    let quality = file.endsWith('.png') ? 0.9 : 0.8;
+    let quality = startQuality[file];
     let webp = await canvas.convertToBlob({ type: 'image/webp', quality });
     while (webp.size >= source.size && quality > 0.6) {
       quality = Math.round((quality - 0.1) * 10) / 10;

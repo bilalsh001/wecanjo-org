@@ -29,7 +29,7 @@ const pages = [
       ['Emad Shehab', 'B.Sc. Mathematics', 'Founder and President of Broccoli Not for Profit Organization.'],
     ],
     initials: ['ID', 'MO', 'AD', 'ES'],
-    fonts: ['eb-garamond-latin', 'eb-garamond-italic-latin', 'manrope-latin', 'ibm-plex-sans-arabic-600-arabic'],
+    fonts: ['eb-garamond-latin', 'eb-garamond-italic-latin', 'manrope-latin'],
   },
   {
     lang: 'ar', dir: 'rtl', file: 'ar/index.html', other: '/', otherLang: 'en', switchName: 'English',
@@ -43,8 +43,7 @@ const pages = [
       ['عماد شهاب', 'بكالوريوس في الرياضيات', 'مؤسس ورئيس منظمة بروكلي غير الربحية.'],
     ],
     initials: ['إ‌د', 'م‌ع', 'ع‌د', 'ع‌ش'],
-    fonts: ['amiri-400-arabic', 'amiri-700-arabic', 'ibm-plex-sans-arabic-400-arabic', 'ibm-plex-sans-arabic-600-arabic',
-      'ibm-plex-sans-arabic-400-latin', 'ibm-plex-sans-arabic-600-latin'],
+    fonts: ['amiri-400-arabic', 'ibm-plex-sans-arabic-400-arabic', 'ibm-plex-sans-arabic-600-arabic'],
   },
 ];
 

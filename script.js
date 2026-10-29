@@ -85,9 +85,9 @@
   });
 })();
 
-// Current section: the section covering the middle of the screen below the header is marked in the
-// navigation (none while the hero is in view) and the language link opens the other page at that
-// section. The header gets its hairline once the page scrolls.
+// Current section: the section covering the middle of the screen is marked in the navigation (none
+// while the hero is in view) and the language link opens the other page at that section. The header
+// gets its hairline once the page scrolls.
 (() => {
   const header = document.querySelector('.site-header');
   const sections = [...document.querySelectorAll('main section[id]')];
@@ -98,7 +98,6 @@
   const langTop = langLink?.getAttribute('href');
   const inView = new Set();
   let current = null;
-  let observer;
 
   function setCurrent(id) {
     if (id === current) return;
@@ -110,6 +109,11 @@
     if (langLink) langLink.setAttribute('href', id ? `${langTop}#${id}` : langTop);
   }
 
+  // Only on scroll, never while the page loads: reading scrollY then would force an early layout.
+  // A page that opens at a section link scrolls there, which also fires this.
+  const markScrolled = () => header.classList.toggle('is-scrolled', window.scrollY > 0);
+  window.addEventListener('scroll', markScrolled, { passive: true });
+
   function onIntersect(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) inView.add(entry.target.id);
@@ -119,25 +123,8 @@
     setCurrent(section && section.id !== 'top' ? section.id : null);
   }
 
-  // Watch a 1 px line across the middle of the area below the sticky header.
-  function observe() {
-    observer?.disconnect();
-    inView.clear();
-    const headerHeight = getComputedStyle(header).position === 'sticky' ? header.offsetHeight : 0;
-    const line = Math.round((window.innerHeight + headerHeight) / 2);
-    const below = Math.max(0, window.innerHeight - line - 1);
-    observer = new IntersectionObserver(onIntersect, { rootMargin: `-${line}px 0px -${below}px 0px` });
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(observe, 150);
-  });
-  observe();
-
-  const markScrolled = () => header.classList.toggle('is-scrolled', window.scrollY > 0);
-  window.addEventListener('scroll', markScrolled, { passive: true });
-  markScrolled();
+  // Watch a thin band across the middle of the screen. The margins are percentages, so the band
+  // follows the window size and nothing has to be measured.
+  const observer = new IntersectionObserver(onIntersect, { rootMargin: '-50% 0px -49% 0px' });
+  sections.forEach((section) => observer.observe(section));
 })();

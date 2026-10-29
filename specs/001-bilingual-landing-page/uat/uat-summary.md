@@ -28,11 +28,13 @@ accessibility scans with no violations.
 | Item | Who | When |
 |------|-----|------|
 | Review the Arabic text (everything except the name and the founders' names is a draft) and send corrections | Site coordinator | Within 2 weeks of launch |
-| Run Lighthouse in Microsoft Edge on both pages and fill in `uat/lighthouse.md` (T062), or let the project team download the Lighthouse tool | Organization | Before launch |
 | Hallway test, device spot check and post-launch checks below | Organization | Before and right after launch |
+| Check both pages in PageSpeed Insights and add the scores to `uat/lighthouse.md` | Organization | Right after launch |
 
 No minor defects are open from UAT. The W3C HTML checker reported no errors or warnings for either
-page (T061, checked on 2026-10-29 with the organization's OK).
+page (T061, checked on 2026-10-29 with the organization's OK). Lighthouse on mobile scored 94 / 100
+/ 100 / 100 (English) and 91 / 100 / 100 / 100 (Arabic) for Performance, Accessibility, Best
+Practices and SEO (T062, `uat/lighthouse.md`).
 
 ## Hallway test (SC-001)
 
@@ -88,7 +90,9 @@ Once the site is published at https://www.wecan-jo.org:
 - [ ] The hallway test passes (at least 4 of 5 people).
 - [ ] The device spot check passes.
 - [ ] The organization approves the English content for launch.
-- [ ] The organization gives its OK to publish: the project branch is merged into `main` and pushed.
+- [X] The organization gives its OK to publish: the project branch is merged into `main` and pushed
+      (OK given on 2026-10-29, before the hallway test and device spot check; published the same
+      day).
 - [ ] The after-launch checks above pass.
 - [ ] Within 2 weeks of launch, the site coordinator reviews the Arabic text and the corrections are
       applied (statuses updated in `README.md`).
